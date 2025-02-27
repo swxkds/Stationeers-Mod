@@ -1,0 +1,701 @@
+<Language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Code>CN</Code>
+  <HelpPage>
+    <!--
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+    |                 MASTER PAGES            |
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+
+    <StationpediaPage>
+    <!--LEAVE THIS ALONE NEEDED FOR THOSE PAGES-->
+      <Key>Home</Key>
+      <Title>家</Title>
+      <Text>
+      </Text>
+    </StationpediaPage>
+    <!--LEAVE THIS ALONE NEEDED FOR THOSE PAGES-->
+    <StationpediaPage>
+      <Key>Search</Key>
+      <Title>搜索</Title>
+      <Text>
+      </Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>AirlockDevicePage</Key>
+      <Title>气闸装置</Title>
+      <Text>{LIST_OF_AIRLOCK_DEVICES}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>LogicUnitPage</Key>
+      <Title>逻辑单元</Title>
+      <Text>{LIST_OF_LOGIC_UNITS}{LIST_OF_MOTHERBOARD}</Text>
+    </StationpediaPage>
+        <StationpediaPage>
+      <Key>CartridgePage</Key>
+      <Title>记忆卡</Title>
+      <Text>这些可以被添加到{THING:ItemTablet}或{THING:ItemAdvancedTablet}，以执行不同的诊断功能。
+{fnTahomafs10bord0shad01cH00FFFF}
+{LIST_OF_CARTRIDGES}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>StructurePage</Key>
+      <Title>结构</Title>
+      <Text>{LIST_OF_STRUCTURES}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ElectronicPage</Key>
+      <Title>电力</Title>
+      <Text>{LIST_OF_ELECTRONICS}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>OrganicPage</Key>
+      <Title>有机物</Title>
+      <Text>{LIST_OF_ORGANICS}</Text>
+    </StationpediaPage>
+        <StationpediaPage>
+      <Key>AtmosphericPage</Key>
+      <Title>大气</Title>
+      <Text>{LIST_OF_ATMOSPHERICS}</Text>
+    </StationpediaPage>
+     <StationpediaPage>
+      <Key>RubbishPage</Key>
+      <Title>垃圾</Title>
+      <Text>{LIST_OF_ELECTRONICS}</Text>
+    </StationpediaPage> 
+    <StationpediaPage>
+      <Key>FurniturePage</Key>
+      <Title>家具</Title>
+      <Text>{LIST_OF_FURNITURES}</Text>
+    </StationpediaPage> 
+        <StationpediaPage>
+      <Key>LorePage</Key>
+      <DisplayFilter>Lore</DisplayFilter>
+      <Title>派系</Title>
+      <Text>{LIST_OF_FACTIONS}</Text>
+    </StationpediaPage>	
+	
+    <StationpediaPage>
+      <Key>FabricatorPage</Key>
+      <Title>装配机器</Title>
+      <Text>这些是需要供电来加工制造你需要的物品的设备。 他们通常用{LINK:IngotPage;铸锭}来提供制造东西所需的{COLORRREEN:原料}
+        {LIST_OF_FABRICATORS}
+      
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>DevicePage</Key>
+      <Title>设备</Title>
+      <Text>这些是结构,一般来说要对其供电才能用, 有各种专门的功能包括逻辑电路, 大气控制等等. 它们的建造方式与其他结构相同。
+        {LIST_OF_DEVICES}
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ImportExportPage</Key>
+      <Title>滑槽 入口/出口</Title>
+      <Text>这些结构通常是需要电力的，能够接收和输出物品。大多数有专门的功能，包括{LINK:LogicUnitPage;逻辑}，{LINK:AtmosphericPage;大气}等等。它们的构建方式与其他结构相同。
+        {LIST_OF_IMPORTEXPORT}
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>SmeltingPage</Key>
+      <Title>冶炼</Title>
+      <Text>一旦你有足够了{LINK:OrePage;矿石}，就可以把冶炼提上日程了，把它们变成{LINK:IngotPage;铸锭}，简单的冶炼通常只需要把矿石放入{THING:StructureArcFurnace}利用电能加热进行。而制造复杂的{LINK:AlloyPage;合金}需要{THING:StructureFurnace}，更复杂的{LINK:SuperAlloyPage;超级合金} 则需要更高级的 {THING:StructureAdvancedFurnace}。要制造这些合金, 你需要按正确的比例{LINK:ReagentPage;混合原料}, 同时{LINK:TemperaturePage;温度}, 和{LINK:PressurePage;压力}也要适合。熔炼通常会产生 {LINK:GasPage;气体}。 
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>MiningPage</Key>
+      <Title>采矿</Title>
+      <Text>你可以用{THING:ItemMiningDrill} 来挖掘 {LINK:OrePage;矿石}. 如果你身上装备了 {THING:ItemMiningBelt} 那么你所开采的 {LINK:OrePage;矿石} 将会被自动收集进去。
+      </Text>
+    </StationpediaPage>
+	
+<StationpediaPage>
+      <Key>TradingPage</Key>
+      <Title>贸易</Title>
+      <Text>贸易是{LINK:Stationeers;Stationeers}生存的重要组成部分，特别是在更极端的世界中，新学员可能会在没有帮助的情况下首先面临生存的挑战。
+
+有三个不同等级的联系人。这些联络人的联络难度越来越大，在他们离开之前会停留20分钟左右，之后由另一个人取代他们的位置，所以如果你想查看更多贸易商的话，你必须找到等级更高的联系人。
+
+信号必须先由卫星天线解析，然后才能确定它指向信号源的精准程度。  搜寻的时间是由卫星天线的功率乘以信号精度，大于联系人的预期解析功率决定的。 如果解析速度太慢，这很可能表明你根本就没有接近目标，你应该尝试其他不同的角度，因为有效功率水平会随着精度呈指数级增长。 另外，该信号可能有一个非常高的预期功率，而你目前的天线不足以在合理的时间内解决它。 解析的过程仅使用了天线设置的实际功率的10%。
+
+一旦你解析了联系人的位置，你就可以按下询问按钮了。  与解析类似，你需要给联系人的降落提供足够的功率。 询问对话框将告知你当前的计算结果。 询问确实有一个硬性的最低要求，如果天线的指向不够好，或者功率太低，将无法启动这个过程。 询问也有时间要求，更难的联系人需要明显的时间，所以你要使用大功率以确保在贸易商离开之前完成。  一旦询问完成，你就可以像以前一样让贸易商着陆。
+{HEADER:----以上为2022年12月22日版本更新的文本，最新版本的跑道不会用，请自行研究。----}
+{LIST_OF_TRADING_DEVICES}
+      </Text>
+</StationpediaPage>
+
+<StationpediaPage>
+      <Key>ConstructionPage</Key>
+      <Title>建设</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>{HEADER:开始}
+	  通常，您将使用{LINK:KitPage;套件}初始化构造，然后使用各种{LINK:ToolPage;工具}和{LINK:ResourcePage;资源}来完成。密切注意构建所选内容需要多少工具包，因为有些结构需要使用多个堆栈。对于一些套件，你会有多个选项，使用{COLORRED:鼠标滚轮}来改变你想要构建的当前选项。
+
+{HEADER:建立结构}
+有些结构会有多个构建状态，需要不同的组合来完成。你的工具提示会告诉你需要什么组合来完成这个结构。有时您需要拥有两个对象，每只手一个，以完成构建状态。有些工具需要先打开，当它在你的主动手上时，可以通过按{KEY:ToggleHandPower}来完成。
+
+{HEADER:工具提示}
+如果你直接看一个不完整的结构，你会得到你需要做什么来完成它的信息。如果您手中有一个{LINK:ToolPage;工具}，而它不是正确的{LINK:ToolPage;工具}，则会出现一个工具提示，告诉您需要使用什么来解构它。
+
+{HEADER:内外压差}
+在建造时，重要的是要注意，压力是测量差。大多数结构都有200kPa的压力限制:如果内外压差大于这个值，就会出现问题。
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ReagentPage</Key>
+      <Title>化学试剂、混合物</Title>
+      <Text>一些混合物。
+      {LIST_OF_REAGENTS}
+      </Text>
+    </StationpediaPage>
+<StationpediaPage>
+      <Key>MusicPage</Key>
+      <Title>创作音乐</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>
+{HEADER:DIY音乐-入门}
+
+1:通过左侧的数据端口将 8 个{THING:DeviceStepUnit}连接到步进音序器。
+
+2:在每个音阶单元上贴上标签，然后用螺丝刀在步进音序器上分配1到8的步进单元。
+
+3:选择播放声音的输出设备（例如 {THING:PassiveSpeaker}）。这需要连接到步进音序器右侧的数据端口。
+
+4:放置一个{THING:StopWatch}，并使用{THING:StructureLogicReader}和{THING:StructureLogicWriter}将Time变量写入音序器上的Time变量。
+
+5:使用{THING:StructureLogicWriter}将{THING:StructureLogicDial}上的值写入音序器的 BPM 变量。BPM 越高，音序的播放速度越快。
+
+6:插入喜欢的音色卡，按音色卡插槽上方和下方的箭头按钮选择要播放的音色。
+
+7:将 8 个步进音高单元上的拨盘设置到所需的音符上，选择要播放的音调。对于鼓声，每个音符都是不同的鼓声。按下每个步进单元上的激活按钮（音序器处于非激活状态），即可试听声音。
+
+8:使用{THING:DeviceLfoVolume}（设备音量）进行怪异处理。
+
+9:最后，激活步进音序器，感受吧。
+      </Text>
+    </StationpediaPage>
+	
+    <StationpediaPage>
+      <Key>TemperatureControlPage</Key>
+      <Title>温度控制</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+<Text>为了控制一个系统的温度，我们要么给它加热从而提高它的温度，要么从它放出热量从而冷却它，这就是温度控制的基本思想。为您实现此目标的设备是{THING:ItemWallHeater}、{THING:ItemWallCooler}、{THING:StructurePipeRadiator}和{THING:StructureAirConditioner}.。
+
+注意:温度控制的方法有很多。有些不涉及上述任何设备。在这里，我们将介绍一些基础知识。
+
+在安装任何类型的温度控制设备之前，了解您的环境是很重要的。当选择温度控制方法时，气体或液体的体积是一个重要的因素。{THING:StructureTankSmall}可以容纳6000L，而{THING:StructureTankBig}可以容纳50000l，这意味着如果两者都满了，小罐会对温度变化做出更快的反应。房间是一个可以容纳一定数量气体的空间。它越大，它能容纳的体积就越大，所以同样的规则一般适用于罐子和房间。
+
+{HEADER:管网}
+管网是一个或多个相互连接的管段，在任何一点上都不分离。不管管网有多大，它的周围都是相同的大气。如果改变网络一端的温度或压力，最远端的温度或压力也会立即发生变化，不会有延迟。
+
+向网络中添加设备可能会将网络分成两个不同的网络。例如，向管道网络添加{THING:StructureVolumePump}将把管网分成两个网络:一个在泵之前，一个在泵之后。
+
+使用安装了{THING:CartridgeAtmosAnalyser}的{THING:ItemTablet}来查看关于任何管网内容的信息。
+
+{HEADER:散热器}
+在{THING:StructureHydraulicPipeBender}中制造的{THING:StructurePipeRadiator}将帮助您在管道和周围环境之间交换热量。它们既适用于绝缘管道，也适用于液体管道。（新版本已区分气/液管道）
+
+在正常情况下，管段会与周围环境交换热量，但在管段中增加散热器将大大加快这一过程。一个管段将继续与周围的大气交换热量，直到两者温度相等。
+
+
+{HEADER:被动冷却}
+你可以通过使用{THING:StructurePipeRadiator}在两个大气之间交换热量来冷却或加热任何环境。这方面的一个例子是在墙上放置一根管子，用气体填充它，然后在管子上放置散热器。现在管道和房间的两个大气压将交换温度，直到它们的温度平衡。
+
+{HEADER:壁挂式加热器}
+{THING:ItemWallHeater}是一个简单的设备，可以安装在墙上或框架上，并与电源相连。当开关打开时，它将开始加热周围环境。它耗电1010W，可由逻辑芯片控制，当温度达到一定水平时运行。
+
+{HEADER:壁挂式冷却器}
+{THING:ItemWallCooler}是{THING:ItemWallHeater}的补充，后者只能提高温度。壁挂式冷却器的工作原理是从周围的大气中吸收热量，并将热量导向其连接的管网中。为了使壁挂式冷却器正常运行，你需要将管道连接到壁式冷却器，并在连接的管网中填充任何类型的气体。气体的热容和体积将决定它对温度变化的反应速度。
+
+管道中储存的气体与房间之间的温差越大，壁挂式冷却器的效率就越低。因此，要保持壁挂式冷却器运行在一个可接受的效率，你需要避免热量积累在连接它的管道中。一种常见的做法是将管道运行到外部，并在管道的外部部分使用散热器来消除热量。
+
+壁挂式冷却器的效率越低，消耗的电能就越少。它将消耗1010W的最高效率。壁挂式冷却器可通过逻辑芯片控制，当温度达到一定程度时运行。
+
+如果壁挂式冷却器闪烁错误，那么它缺少以下其中之一:
+- 与壁挂式冷却器的管道连接。
+- 连接的管网是否有气体或压力过低。
+- 周围环境的是否有气体或压力过低。
+
+{HEADER:空调}
+ {THING:StructureAirConditioner} 的基本形式就像壁挂式冷却器一样，可以从相同的设计中受益。然而，它更强大。根据不同的情况，它冷却更快，消耗更多的电力，因此更适合处理大体积和大区域。它可以根据设置加热或冷却。
+
+工作原理：
+空调有3路连接(输入、输出、换热)。气体从输入侧进入，然后根据设置，在进入的气体中添加或去除热量，并转移到换热管中。输出气体将通过输出连接出口，根据设置，升温或降温。
+你可以把输入管和输出管连接起来(如果它们有相同的网络编号，你可以看到它们是否连接了):这将使你对温度有更多的控制，因为气体在第一次通过后不会达到目标温度。任何气体升温或降温都需要时间和能量。
+
+你安装和设置空调的方式取决于你想要冷却或加热什么。对于一个房间，你需要在房间里有一个被动通风口，连接到空调的输入和输出，而换热管必须充满冷却剂气体。
+
+空调不一定要在房间里。这个装置中唯一必须在房间里的部分是被动通风口，它将循环房间的空气通过空调来冷却或加热。
+
+你可以用一台空调既升温或降温。你只需要改变面板上的目标温度设置。但是，如果你想同时自动升温或降温，你将需要一台空调升温和另一台空调降温，因为面板上的设置只能手动更改。
+
+如果你需要加快速度，或者你需要用一些空调升温，另一些空调降温，在同一个管网上设置多台空调会很有用。通过将空调的输入和输出连接在一起，并将它们的输入和输出共享同一个管网来实现这一点。换热管网也可以在空调之间共用，&lt;color=green&gt;但必须与输入/输出管网分开&lt;/color&gt;。同样的想法也适用于使用空调来控制水箱的温度。但是，不要使用被动通风口，你需要直接将水箱连接到空调上。
+
+注意事项：
+- 输入管与换热管之间温差越大，空调耗电量越大
+- 空调耗电可能超过5kW，建议使用较粗的{THING:ItemCableCoilHeavy} 给空调供电。
+- 把换热管放在外面，让它与外面的空气平衡并不总是最好的选择:你放进去的气体可以用在基地的其他地方。
+
+基础温度控制：
+使用空调控制基地温度的方法有很多，这是实现这一目标的一种方法:
+步骤1:在你的基地周围布置一个管网，在每个你想控制的房间安装被动通风口连接到这个管道。这是“网络A”
+步骤2:连接“网络A”到空调的输入和输出端。
+步骤3:将换热管连接到另一个管网上，并将其连接到外部。在这个网络上安装散热器。
+这是基本的设置。要实现自动化，您需要在网络A上安装一个管道分析器，然后读取温度并相应地设置空调。
+祝你好运，学员!
+      </Text>
+    </StationpediaPage>
+	
+	
+    <StationpediaPage>
+      <Key>GasPage</Key>
+      <Title>流体</Title>
+      <Text>物质拥有固体、气体和液体三态，达到指定压力和温度后会转换形态，称为“相变”。物质为气态时,压力变化,质量越高压力越大;物质为液态时,体积变化,质量越高体积越大。液态物质在达到饱和蒸汽压前会自发的挥发成气态,液态物质体积占容器总体积的比例越低,挥发的质量越高。{LIST_OF_GASES}
+      </Text>
+    </StationpediaPage>
+	
+    <StationpediaPage>
+      <Key>OrePage</Key>
+      <Title>矿石</Title>
+      <Text>这些是{LINK:MiningPage;矿石}，通常可以被{LINK:SmeltingPage;冶炼}。你也可以通过在{THING:StructureRecycler}中回收物品，然后通过{THING:StructureCentrifuge}将其分解成{LINK:OrePage;矿石}，最后用于{LINK:SmeltingPage;冶炼}。
+        有一些矿石暴露在阳光下或0摄氏度以上会融化，产生{LINK:GasPage;气体}。例如，{THING:ItemIce}会融化成{GAS:Water}和{GAS:Oxygen}。注意不要让这些东西受热或受阳光照射，直到你真正想让它们融化。{LIST_OF_ORES}
+      </Text>
+    </StationpediaPage>
+	
+      <StationpediaPage>
+          <Key>GeneticsPage</Key>
+          <Title>遗传学</Title>
+          <Text>
+		  植物有一套修改其行为的基因。植物的基因会以多种方式被操纵，包括自然和人工。当植物结出果实或种子时，它将以小的随机突变来传递其基因。
+
+在随机突变的基础上，植物一生中的状况也会影响其基因--例如，如果植物缺水，虽然可能会影响植物的生长速度和产量，但其后代会得到使其需要更少水的基因。通过这种方式，你可以操纵你的作物的理想条件。
+
+你需要一些工具来有效地管理你的农作物。{THING:ItemPlantSampler}和{THING:AppliancePlantGeneticAnalyzer}。这些工具允许你对生长中的植物进行采样，并查看其基因状态。
+
+植物遗传学不是一门精确的科学，在你能够达到你的目标之前，将需要试验和错误以及反复尝试。{LIST_OF_GENES} {LIST_OF_GENETIC_DEVICES}
+          </Text>
+      </StationpediaPage>
+	  
+    <StationpediaPage>
+      <Key>IngotPage</Key>
+      <Title>铸锭</Title>
+      <Text>通常由{LINK:OrePage;矿石}经过{LINK:SmeltingPage;冶炼}制成，而合金需要按照一定比例混合{LINK:OrePage;矿石}并且熔炉内部达到对应的压力和温度进行{LINK:SmeltingPage;冶炼}。主要用途于{LINK:FabricatorPage;制造}。
+
+{LIST_OF_INGOTS}
+      </Text>
+    </StationpediaPage>
+	
+    <StationpediaPage>
+      <Key>ToolPage</Key>
+      <Title>手持工具</Title>
+      <Text>这些是可以装入专业工具槽的物品，用于{LINK:ConstructionPage;建造}和其他任务。
+
+{LIST_OF_TOOLS}
+      </Text>
+    </StationpediaPage>
+	
+    <StationpediaPage>
+      <Key>ResourcePage</Key>
+      <Title>资源</Title>
+      <Text>这些是在{LINK:ConstructionPage;建造}或其他任务要用到的物品.
+{LIST_OF_RESOURCES}
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>KitPage</Key>
+      <Title>套件</Title>
+      <Text>这些是在 {LINK:ConstructionPage;建造} 或是其他任务中要用到的物品。
+{LIST_OF_KITS}
+      </Text>
+    </StationpediaPage>
+	
+    <StationpediaPage>
+      <Key>AutomatedRocketPage</Key>
+      <Title>模块化火箭</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>火箭部件在{THING:StructureRocketManufactory}上打印。
+
+{THING:StructureFuselageTypeA1}必须安装在{THING:StructureLaunchMount}上。{THING:StructureGovernedGasEngine}必须放置在{THING:StructureEngineMountTypeA1}下方。
+
+资源脐带被放置在 {THING:StructureRocketTower}上，并连接火箭内部的{THING:StructureGasUmbilicalMale}和{THING:StructureGasUmbilicalFemale}。
+
+带有{THING:MotherboardRockets}的{THING:StructureComputer}提供了控制火箭的用户界面。
+
+一对数据链路被用来创建行星侧的{THING:StructureLogicRocketUplink}和火箭侧的{THING:StructureLogicRocketDownlink}，它们必须连接到{THING:StructureComputer}。
+
+火箭上还需要安装一个{THING:StructureRocketAvionics}作为火箭的主控制器。
+
+在装有{THING:MotherboardRockets}的{THING:StructureComputer}的 "Map"（地图）界面中，您可以设置火箭的目的地。
+
+在没有设置目的地的情况下点燃火箭，可以在不发射火箭的情况下查看火箭的性能和燃料使用情况。
+
+根据火箭的大小，预计每枚火箭的燃料消耗量为 5-20 千摩尔。
+
+{THING:StructureRocketScanner}用于绘制未知地点的地图和发现可开采的小行星。
+
+可以使用{THING:StructureRocketMiner}和{THING:StructureCargoStorageSmall}建造更复杂的火箭。
+
+{HEADER:建造步骤(使用心得)}
+1.建造发射平台支架：将支架放置在4个框架中间（以九宫格示意：框架在2、4、6、8，发射支架在5）。
+2.建造箭体：在&lt;size=110%&gt;发射支架&lt;/size&gt;上安装&lt;size=110%&gt;发动机支架&lt;/size&gt;，然后根据需求安装多个仪器舱，最顶端是整流罩。变种中的ABCD型只是涂装不同，可以混用。
+3.发动机安装：在发动机支架底部安装火箭发动机，为火箭发动机提供电力和数据接口以及根据发动机类型接入燃料管道。	
+4.箭体内部安装：将各种火箭设备(包含燃料罐、蓄电池做为火箭动力、货仓、采矿机械臂、探测机械臂为采集和存储设备；逻辑火箭下行链路和火箭IC外壳二选一以控制火箭)在仪器舱内安装并使用对应管线连接到火箭脐带接口
+5.在火箭发射支架伸出的4个架子上根据需求安装脐带塔，然后在对应位置安装脐带塔-脐带接口
+6.封装箭体外壳
+7.在地面安装火箭上行链路，将上午链路设置为火箭内的下行链路，最后连接到装有火箭遥控主板的电脑。
+
+	
+{LIST_OF_ROCKET}
+      </Text>
+    </StationpediaPage>	
+	
+    <StationpediaPage>
+      <Key>FoodPage</Key>
+      <Title>食物</Title>
+      <Text>这些物品能给你提供营养
+        {LIST_OF_FOOD}
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ClothingPage</Key>
+      <Title>服装</Title>
+      <Text>这些物品可以被穿戴.
+{LIST_OF_CLOTHING}
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>AppliancePage</Key>
+      <Title>小型设备</Title>
+      <Text>这些物品可以安置在 工作桌 上. 你也必须把它们放在 工作桌 上，然后用扳手来固定住.
+{LIST_OF_APPLIANCES}
+      </Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>WeatherPage</Key>
+      <Title>天气</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>太阳系的行星并不像它们看起来那样平静。在任何有大气层的世界上停留7天后，不可捉摸的自然力量就会开始行动--用暴风雪、沙尘暴和火山事件来打击不小心的驻扎者。
+因此，官方发展援助建议新部署的Stationeers在着陆后7天内建立一个密封的基地。
+任何在风暴中留在外面的动态物体——在火星、楼兰、火神或木卫二上——都有被吹到很远很远的危险，包括你的着陆器。
+同样地，要注意太阳能电池板是脆弱的，它们的玻璃可能会破碎，或者偶尔甚至会被一场足够猛烈的风暴摧毁。在风暴期间，它们的产量也会大幅减少。
+      </Text>
+    </StationpediaPage>
+	
+    <!--
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+    |                     TEMPLATES               |
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+    -->
+    <StationpediaPage>
+      <Key>ThingTemplate</Key>
+      <Text>{0}
+
+{HEADER:常规}
+{LIST}预设哈希值 {POS:300}{1}
+Paintable {POS:300}{2}{3}{/LIST}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ThingThermalTemplate</Key>
+      <Text>{HEADER:温度限值}
+{LIST}熔点 {POS:300}{0}
+闪点{POS:300}{1}
+自燃点{POS:300}{2}{3}{/LIST}</Text>
+    </StationpediaPage>
+    
+    
+    
+    <StationpediaPage>
+      <Key>LogicTypePageTemplate</Key>
+      <Text>{0}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ThingSlotHeaderTemplate</Key>
+      <Text>{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ThingSlotItemTemplate</Key>
+      <Text>{0}. {1} 类型 {2}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ThingStackTemplate</Key>
+      <Text>{0}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>ThingTransmissibleTemplate</Key>
+      <Text>连接到 {POS:300}{THING:StructureLogicTransmitter}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ThingNutritionTemplate</Key>
+      <Text>{0}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>IceMeltingTemplate</Key>
+      <Text>熔体温度 {1}
+熔体压力 {0}</Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>DeviceTemplate</Key>
+      <Text>{0}W</Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>GasCanisterTemplate</Key>
+      <Text>{0}</Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>AtmosphericsTemplate</Key>
+      <Text>{0}</Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>NutritionPageTemplate</Key>
+      <Text>{0}</Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>CreatorsHeaderTemplate</Key>
+      <Text>{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ConstructedByHeaderTemplate</Key>
+      <Text>
+{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>CreatedHeaderTemplate</Key>
+      <Text>
+{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ConstructedHeaderTemplate</Key>
+      <Text>
+{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>LogicTransmitHeaderTemplate</Key>
+      <Text>
+        
+        {LIST}{0}{/LIST}
+      </Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>TierListHeaderTemplate</Key>
+      <Text>
+        
+      </Text>
+    </StationpediaPage>
+
+    <StationpediaPage>
+      <Key>CreatorTemplate</Key>
+      <Text>{LIST}{0}{1}{/LIST}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>LogicTypeHeaderTemplate</Key>
+      <Text>{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>LogicTypeTemplate</Key>
+      <Text>{0}{POS:300}{1} {2}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ModeStringHeaderTemplate</Key>
+      <Text>{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+        
+    <StationpediaPage>
+      <Key>CreatedGasesTemplate</Key>
+      <Text>
+{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>Lore</Key>
+      <Text></Text>
+    </StationpediaPage>
+
+        <StationpediaPage>
+      <Key>Guides</Key>
+      <Text></Text>
+    </StationpediaPage>
+
+        <StationpediaPage>
+      <Key>CreatedReagentTemplate</Key>
+      <Text>
+{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    
+    <StationpediaPage>
+      <Key>ModeStringItemTemplate</Key>
+      <Text>{0}.{1}</Text>
+    </StationpediaPage>
+    
+    
+    <StationpediaPage>
+      <Key>ReagentPageTemplate</Key>
+      <Text>一种 {LINK:ReagentPage;混合原料}, 通常在其变为 {LINK:IngotPage;铸锭} 的形式时使用.
+
+{LIST}单位 {1}{/LIST}
+
+
+{LIST}{2}{/LIST}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>GasPageTemplate</Key>
+      <Text>一种{LINK:GasPage;气体}, 通常在进行{LINK:SmeltingPage;熔炼}操作时产出.
+
+
+{LIST}比热容 {1}{2}{/LIST}
+
+
+{LIST}{0}{/LIST}</Text>
+    </StationpediaPage>
+    <StationpediaPage>
+      <Key>GasPageFlamableTemplate</Key>
+      <Text>可燃极限 {0} 到 {1}</Text>
+    </StationpediaPage>
+	
+	
+	
+	
+	
+    <StationpediaPage>
+      <Key>NutritionPage</Key>
+      <Title>饥饿与营养</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>{HEADER:饥饿}
+Stationeers最终会感到饥饿，但并不是所有的食物营养都是相同的。此外，你的饥饿值也会随着环境和难度的不同而变化。吃东西只会消耗食物中足以让你恢复100%饥饿值的那部分。
+
+在到达一个新世界时，会在着陆器中获得食物供应，如 {LINK:Agrizero;Agrizero} {THING:ItemCerealBar}。当这些都用完后，你必须寻找新的食物来源——比如从提供的种子中自己种植，或者联系商人{LINK:TradingPage;商人}。
+
+{HEADER:营养}
+吃生食材比吃烹制的更能充饥。食物的基本成分是使用{LINK:OrganicPage;水培系统}创造出来的。这些可以用{THING:ApplianceReagentProcessor}加工成食谱原料，然后用{THING:ApplianceMicrowave}或{THING:StructureAutomatedOven}转化成饭菜。
+
+你的饥饿速度可以通过调整设置中的饥饿/口渴率滑块在主设置菜单中进行调整。注意滑块也设置你的{LINK:HydrationPage;口渴}。(新版本已取消，由创建世界时的难度选择控制)
+</Text>
+    </StationpediaPage>
+
+<StationpediaPage>
+      <Key>FarmingPage</Key>
+      <Title>种植食物</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>为了在外星世界生存，{LINK:ODA;ODA}期望所有{LINK:Stationeers;Stationeers}建立可行的{LINK:OrganicPage;水培系统}，或者联系注册的本地资源商人{LINK:TradingPage;商人}。
+
+{HEADER:种植}
+在建造你的水培系统时，你将需要作物种子{LINK:OrganicPage;种子}。或者，你也可以种植食物本身。
+
+常见的文具水培设备包括:
+
+- {THING:DynamicHydroponics}
+- {THING:ItemHydroponicTray}
+- {THING:ItemKitHydroponicStation}
+- {THING:StructureHarvie}
+
+所有的水培系统都需要水、阳光和正确的气体混合物 - 植物需要{GAS:CarbonDioxide}并产生氧气({THING:ItemAlienMushroom}除外)。植物不会在错误的环境中生长。如果植物没有足够的阳光，你将需要构建一个{THING:StructureGrowLight}。
+
+您的系统将取决于可用的资源和时间，但如果有足够的资源和时间，一个设计良好的农场系统几乎可以完全自动化。
+
+{HEADER:收获}
+大多数植物都有几个生长阶段。第一个阶段是植物整个生命周期的成长期。在第三阶段，可以从植物中收获种子。在第四阶段，这种植物将结果。在那之后，除非清理干净，否则植物就会死亡。
+
+{HEADER:肥料}
+堆肥能改变植物的生长过程，是由堆肥机和{THING:StructureAdvancedComposter}使用{LINK:OrganicPage;有机物}产生的。
+堆肥的作用取决于它的成分:
+
+- {LINK:OrganicPage;食物} 使植物产量提高两倍
+- {THING:DecayedFood} 增加植物生长速度两倍
+- {THING:ItemBiomass} 增加肥料持续的生长周期数
+
+这些成分的效果取决于它们在堆肥机中的各自比例。堆肥按肥料与配料的1:3比例生产。在加工过程中，会释放{GAS:Nitrogen}和{GAS:Volatiles}以及少量的热量。
+</Text>
+    </StationpediaPage>
+
+ <StationpediaPage>
+      <Key>DecayPage</Key>
+      <Title>食物腐烂</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>除非在适宜的环境下冷藏，否则食物会随着时间的推移而腐烂成腐烂的食物。腐烂的确切速度各有不同:
+
+- 温度 - 冷藏会减缓腐烂，但许多食物暴露在极低的压力和极热的环境下会损坏。最佳温度是0开尔文(-272摄氏度)。
+
+- 食物种类 - 每个{LINK:OrganicPage;食物}类型都有自己的腐烂属性。例如，{THING:ItemTomatoSoup}比 {THING:ItemTomato}的保鲜时间要长得多。
+
+- 压力 - 当压力降到1地球标准大气压(101kPa)以下时，食物腐烂得更快。当大气接近完全真空时，腐烂的速度会呈指数级增长。高压则没有任何影响。
+
+- 大气 - 不同的气体环境可以减缓或加速腐烂过程。在计算腐烂修正时，该过程将考虑到混合大气中各自的气体比率。以下比率适用于所有食物:
+
+> {GAS:Oxygen} x 1.3
+> {GAS:Nitrogen} x 0.6
+> {GAS:CarbonDioxide} x 0.8
+> {GAS:Volatiles} x 1
+> {GAS:Pollutant} x 3
+> {GAS:NitrousOxide} x 1.5
+> {GAS:Water} x 2
+> 真空-见压力(上)。
+</Text>
+    </StationpediaPage>
+
+	
+    <StationpediaPage>
+      <Key>HydrationPage</Key>
+      <Title>口渴+补水</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>一般Stationeer都需要经常喝水。然而，晦涩难懂和可能被误导的{LINK:ODA;ODA}健康和安全法规长期以来一直反对Stationeer在套装中喝水的机制。相反，他们必须定期喝水，打开头盔，喝水。在没有压力的环境中这样做是不明智的。
+
+多久喝一次水?这是取决于你的难度设置、环境的温度和你运动的程度。
+
+水有很多种形式。当登陆新行星，在着陆架上至少有一个{THING:ItemWaterBottle}是提供给Stationeer作为他们的口粮的一部分。这些可以使用{THING:ItemWaterBottleFiller}进行填充，它本身必须连接到一个液体管网。网络本身可以使用{THING:StructureIceCrusher}填充适当的冰供应。
+
+你的口渴速度可以通过调整设置中的饥饿/口渴率滑块在主设置菜单中进行调整。(新版本已取消，由创建世界时的难度选择控制)。
+</Text>
+    </StationpediaPage>
+	
+    <StationpediaPage>
+      <Key>EVAPage</Key>
+      <Title>EVA宇航服</Title>
+      <DisplayFilter>Guides</DisplayFilter>
+      <Text>你的宇航服为你提供了一个便携式大气环境，可调节压力和空调(温度)设置，以及一个预警系统，当宇航服内的大气环境变得危险时，它会向你发出警报。它与合适的头盔配合使用才能正常工作，还可以在宇航服的各个插槽中安装合适的气罐和过滤器。这些需要定期更换，也可以使用{THING:StructureSuitStorage}进行补充(或排空)。
+
+有几种套装，包括{THING:ItemEvaSuit}和更耐压耐温的{THING:ItemHardSuit}。
+
+套装的各种读数都在屏幕的右下方。按下下相应的数字键(2)会出现一个显示槽位和设置的面板。这些包括:
+
+- 空调AC 开/关(即温度控制开/关)
+- 过滤器Filter 开/关
+- 空气Air 开/关
+- 加压/减压(范围为0kPA至202kPa，或0-2地球大气压，1地球大气压=101kPa)
+- 增加温度/减少温度(范围0°C至60°C)
+
+套装包含6-8个插槽:
+- 空气罐(x1) - 插入一个包含可呼吸气体混合物的金属气罐或智能气罐，如{GAS:Oxygen}或{GAS:Nitrogen}/{GAS:Oxygen}35/65。
+- 废气罐(x1) -收集被过滤器清除的气体
+- 维生设备(x1) -放置一块电池，为你的空调，灯等供电。
+- 滤芯 (x3) - 至少需要一个滤芯，这取决于你的呼吸气体。：如人类需要{GAS:CarbonDioxide}滤芯。注意，{THING:ItemHardSuit}有4个筛选槽。
+- IC - 仅{THING:ItemHardSuit}。
+
+压力:应设置为50-100kPa(0.5到1个地球大气压)。人类在游戏中的耐受可达250kPa，可在300kPa的环境下生存。
+
+温度:通常设置为18-21°C，游戏中人类更喜欢10-29°C，耐受0-39°C，生存在49°C。在较高的温度下，你的空调将消耗更多的电池电量来维持内部温度。
+
+过滤器:默认的过滤器是{GAS:CarbonDioxide}，它收集人类呼气时产生的气体。如果你空气罐中没有使用100% {GAS:Oxygen}，就添加额外的过滤器，例如如果你混合了25% {GAS:Oxygen} + 75% {GAS:Nitrogen}，随着时间的推移，{GAS:Nitrogen}会在你的套装中积累并使你窒息，除非你有一个{THING:ItemGasFilterNitrogen}。如果你有正确的过滤器和可呼吸气体，但仍然遇到问题，使用太空头盔上的“泄压”功能。当过滤器停止工作时，低氧气警告将会响起。
+
+如果套装损坏了，可以通过手拿胶带和使用&apos;激活&apos;按钮进行修补。
+</Text>
+    </StationpediaPage>
+	  
+  </HelpPage>
+</Language>
