@@ -8,7 +8,7 @@
             "type": "process",
             "args": [
                 "build",
-                "D:/meanran_xuexi_mods/汉化与字体优化/汉化与字体优化.csproj"
+                "${workspaceFolder}/汉化与字体优化/汉化与字体优化.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {

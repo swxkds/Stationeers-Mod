@@ -13,7 +13,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
         public static void 设置螺丝链接(this CircuitHousing IC外壳, Interactable IC外壳控件, ILogicableReference 按钮点击返回)
         {
             switch (按钮点击返回.绑定.type)
-            {
+            { 
                 case ILogicableReference内存结构.内存结构.结构类型.原始物体:
                     {
                         var 链接物 = 按钮点击返回.绑定.原始物体结构.原始物体;
