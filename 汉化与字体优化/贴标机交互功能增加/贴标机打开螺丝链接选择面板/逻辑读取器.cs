@@ -1,34 +1,43 @@
+using System.Linq;
 using Assets.Scripts.Objects;
 using Assets.Scripts.Objects.Electrical;
 using Assets.Scripts.Objects.Items;
 using Assets.Scripts.Objects.Motherboards;
 using Assets.Scripts.Objects.Pipes;
 using HarmonyLib;
-using static meanran_xuexi_mods_xiaoyouhua.链接选择面板;
 
 namespace meanran_xuexi_mods_xiaoyouhua
 {
     public static partial class 扩展方法
     {
-        public static void 设置螺丝链接(this LogicReader 逻辑读取器, Interactable 逻辑读取器控件, ILogicable 按钮点击返回的链接物, LogicType 按钮点击返回的逻辑类型)
+        public static void 设置螺丝链接(this LogicReader 逻辑读取器, Interactable 逻辑读取器控件, ILogicableReference 按钮点击返回)
         {
-            switch (逻辑读取器控件.Action)
+            switch (按钮点击返回.绑定.type)
             {
-                case InteractableType.Button1:
-                    设置链接物体(逻辑读取器, 按钮点击返回的链接物); break;
-                case InteractableType.Button2:
-                    设置链接类型(逻辑读取器, 按钮点击返回的逻辑类型); break;
-                default: break;
+                case ILogicableReference内存结构.内存结构.结构类型.原始物体:
+                    {
+                        var 链接物 = 按钮点击返回.绑定.原始物体结构.原始物体;
+                        switch (逻辑读取器控件.Action)
+                        { case InteractableType.Button1: 设置链接物体(逻辑读取器, 链接物); break; }
+                        break;
+                    }
+                case ILogicableReference内存结构.内存结构.结构类型.逻辑类型:
+                    {
+                        var 逻辑类型 = 按钮点击返回.绑定.逻辑类型结构.逻辑类型;
+                        switch (逻辑读取器控件.Action)
+                        { case InteractableType.Button2: 设置逻辑类型(逻辑读取器, 逻辑类型); break; }
+                        break;
+                    }
             }
         }
         private static void 设置链接物体(LogicReader 逻辑读取器, ILogicable 选择焦点)
         {
             // TODO:联机游戏请在此处发送数据包,目前不知道应该发送什么消息
-            逻辑读取器.CurrentDevice = 选择焦点 as Device;
+            逻辑读取器.CurrentDevice = (Device)选择焦点;
             逻辑读取器.LogicType = LogicType.None;
             逻辑读取器.Setting = 0;
         }
-        private static void 设置链接类型(LogicReader 逻辑读取器, LogicType 参数类型)
+        private static void 设置逻辑类型(LogicReader 逻辑读取器, LogicType 参数类型)
         {
             // TODO:联机游戏请在此处发送数据包,目前不知道应该发送什么消息
             if (逻辑读取器.CurrentDevice != null)
@@ -37,16 +46,34 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 逻辑读取器.Setting = 0;
             }
         }
-        public static 链接选择面板消息结构 获取链接选择面板所需的交互消息(this LogicReader 逻辑读取器, Interactable 逻辑读取器控件)
+        public static 链接选择面板渲染分支选择消息.消息结构.消息类型 获取渲染分支选择消息(this LogicReader 逻辑读取器, Interactable 逻辑读取器控件)
+        {
+            switch (逻辑读取器控件.Action)
+            {
+                case InteractableType.Button1: return 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支;
+                case InteractableType.Button2: return 链接选择面板渲染分支选择消息.消息结构.消息类型.逻辑类型渲染分支;
+            }
+            return 链接选择面板渲染分支选择消息.消息结构.消息类型.Null;
+        }
+
+        public static 链接选择面板渲染分支选择消息.消息结构 获取完整渲染分支选择消息(this LogicReader 逻辑读取器, Interactable 逻辑读取器控件)
         {
             switch (逻辑读取器控件.Action)
             {
                 case InteractableType.Button1:
-                    return 链接选择面板消息结构.选择链接物;
+                    return new 链接选择面板渲染分支选择消息.消息结构
+                    {
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
+                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = 逻辑读取器.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)逻辑读取器) }
+                    };
                 case InteractableType.Button2:
-                    return new 链接选择面板消息结构 { 控件类型 = 面板类型.逻辑类型控件, 逻辑类型控件所需的已链接物体 = 逻辑读取器.CurrentDevice, 此物体是读取器还是写入器 = IOCheck.Readable };
-                default: return 链接选择面板消息结构.选择链接物;
+                    return new 链接选择面板渲染分支选择消息.消息结构
+                    {
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.逻辑类型渲染分支,
+                        逻辑类型渲染分支消息 = new 链接选择面板渲染分支选择消息.逻辑类型渲染分支消息 { 已链接物体 = 逻辑读取器.CurrentDevice, 只读或只写 = IOCheck.Readable }
+                    };
             }
+            return 链接选择面板渲染分支选择消息.消息结构.Null;
         }
     }
 

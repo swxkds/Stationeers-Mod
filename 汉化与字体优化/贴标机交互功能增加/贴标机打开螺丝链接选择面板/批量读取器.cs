@@ -1,3 +1,4 @@
+using System.Linq;
 using Assets.Scripts.Objects;
 using Assets.Scripts.Objects.Electrical;
 using Assets.Scripts.Objects.Items;
@@ -10,17 +11,31 @@ namespace meanran_xuexi_mods_xiaoyouhua
 {
     public static partial class 扩展方法
     {
-        public static void 设置螺丝链接(this LogicBatchReader 批量读取器, Interactable 批量读取器控件, ILogicable 按钮点击返回的链接物, LogicType 按钮点击返回的逻辑类型)
+        public static void 设置螺丝链接(this LogicBatchReader 批量读取器, Interactable 批量读取器控件, ILogicableReference 按钮点击返回)
         {
-            switch (批量读取器控件.Action)
+            switch (按钮点击返回.绑定.type)
             {
-                // case InteractableType.Button1:
-                //     设置批处理模式(批量读取器, 按钮点击返回的链接物); break;
-                case InteractableType.Button2:
-                    设置链接类型(批量读取器, 按钮点击返回的逻辑类型); break;
-                case InteractableType.Button3:
-                    设置链接物体(批量读取器, 按钮点击返回的链接物); break;
-                default: break;
+                case ILogicableReference内存结构.内存结构.结构类型.统计类型:
+                    {
+                        var 统计类型 = 按钮点击返回.绑定.统计类型结构.统计类型;
+                        switch (批量读取器控件.Action)
+                        { case InteractableType.Button1: 设置统计类型(批量读取器, 统计类型); break; }
+                        break;
+                    }
+                case ILogicableReference内存结构.内存结构.结构类型.逻辑类型:
+                    {
+                        var 逻辑类型 = 按钮点击返回.绑定.逻辑类型结构.逻辑类型;
+                        switch (批量读取器控件.Action)
+                        { case InteractableType.Button2: 设置逻辑类型(批量读取器, 逻辑类型); break; }
+                        break;
+                    }
+                case ILogicableReference内存结构.内存结构.结构类型.原始物体:
+                    {
+                        var 链接物 = 按钮点击返回.绑定.原始物体结构.原始物体;
+                        switch (批量读取器控件.Action)
+                        { case InteractableType.Button3: 设置链接物体(批量读取器, 链接物); break; }
+                        break;
+                    }
             }
         }
         private static void 设置链接物体(LogicBatchReader 批量读取器, ILogicable 选择焦点)
@@ -31,7 +46,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
             批量读取器.LogicType = LogicType.None;
             批量读取器.Setting = 0;
         }
-        private static void 设置链接类型(LogicBatchReader 批量读取器, LogicType 参数类型)
+        private static void 设置逻辑类型(LogicBatchReader 批量读取器, LogicType 参数类型)
         {
             // TODO:联机游戏请在此处发送数据包,目前不知道应该发送什么消息
             if (批量读取器.CurrentPrefab != null)
@@ -40,18 +55,46 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 批量读取器.Setting = 0;
             }
         }
-        public static 链接选择面板消息结构 获取链接选择面板所需的交互消息(this LogicBatchReader 批量读取器, Interactable 批量读取器控件)
+        private static void 设置统计类型(LogicBatchReader 批量读取器, LogicBatchMethod 统计类型)
+        {
+            // TODO:联机游戏请在此处发送数据包,目前不知道应该发送什么消息
+            批量读取器.BatchMethod = 统计类型;
+            批量读取器.Setting = 0;
+        }
+        public static 链接选择面板渲染分支选择消息.消息结构.消息类型 获取渲染分支选择消息(this LogicBatchReader 批量读取器, Interactable 批量读取器控件)
         {
             switch (批量读取器控件.Action)
             {
-                // case InteractableType.Button1:
-                //     设置批处理模式(批量读取器, 按钮点击返回的链接物); break;
-                case InteractableType.Button2:
-                    return new 链接选择面板消息结构 { 控件类型 = 面板类型.逻辑类型控件, 逻辑类型控件所需的已链接物体 = 批量读取器.CurrentPrefab, 此物体是读取器还是写入器 = IOCheck.Readable };
-                case InteractableType.Button3:
-                    return 链接选择面板消息结构.选择链接物;
-                default: return 链接选择面板消息结构.选择链接物;
+                case InteractableType.Button1: return 链接选择面板渲染分支选择消息.消息结构.消息类型.统计类型渲染分支;
+                case InteractableType.Button2: return 链接选择面板渲染分支选择消息.消息结构.消息类型.逻辑类型渲染分支;
+                case InteractableType.Button3: return 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支;
             }
+            return 链接选择面板渲染分支选择消息.消息结构.消息类型.Null;
+        }
+
+        public static 链接选择面板渲染分支选择消息.消息结构 获取完整渲染分支选择消息(this LogicBatchReader 批量读取器, Interactable 批量读取器控件)
+        {
+            switch (批量读取器控件.Action)
+            {
+                case InteractableType.Button1:
+                    return new 链接选择面板渲染分支选择消息.消息结构
+                    {
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.统计类型渲染分支
+                    };
+                case InteractableType.Button2:
+                    return new 链接选择面板渲染分支选择消息.消息结构
+                    {
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.逻辑类型渲染分支,
+                        逻辑类型渲染分支消息 = new 链接选择面板渲染分支选择消息.逻辑类型渲染分支消息 { 已链接物体 = 批量读取器.CurrentPrefab, 只读或只写 = IOCheck.Readable }
+                    };
+                case InteractableType.Button3:
+                    return new 链接选择面板渲染分支选择消息.消息结构
+                    {
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
+                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = 批量读取器.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)批量读取器) }
+                    };
+            }
+            return 链接选择面板渲染分支选择消息.消息结构.Null;
         }
     }
 

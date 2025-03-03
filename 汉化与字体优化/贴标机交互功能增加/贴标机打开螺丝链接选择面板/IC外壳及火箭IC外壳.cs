@@ -1,8 +1,8 @@
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Assets.Scripts.Objects;
 using Assets.Scripts.Objects.Electrical;
 using Assets.Scripts.Objects.Items;
-using Assets.Scripts.Objects.Motherboards;
 using Assets.Scripts.Objects.Pipes;
 using HarmonyLib;
 
@@ -10,32 +10,51 @@ namespace meanran_xuexi_mods_xiaoyouhua
 {
     public static partial class 扩展方法
     {
-        public static void 设置螺丝链接(this CircuitHousing IC外壳, Interactable IC外壳控件, ILogicable 按钮点击返回的链接物, LogicType 按钮点击返回的逻辑类型)
+        public static void 设置螺丝链接(this CircuitHousing IC外壳, Interactable IC外壳控件, ILogicableReference 按钮点击返回)
         {
-            switch (IC外壳控件.Action)
+            switch (按钮点击返回.绑定.type)
             {
-                case InteractableType.Button1:
-                    设置链接物体(IC外壳, 按钮点击返回的链接物, 0); break;
-                case InteractableType.Button2:
-                    设置链接物体(IC外壳, 按钮点击返回的链接物, 1); break;
-                case InteractableType.Button3:
-                    设置链接物体(IC外壳, 按钮点击返回的链接物, 2); break;
-                case InteractableType.Button4:
-                    设置链接物体(IC外壳, 按钮点击返回的链接物, 3); break;
-                case InteractableType.Button5:
-                    设置链接物体(IC外壳, 按钮点击返回的链接物, 4); break;
-                case InteractableType.Button6:
-                    设置链接物体(IC外壳, 按钮点击返回的链接物, 5); break;
-                default: break;
+                case ILogicableReference内存结构.内存结构.结构类型.原始物体:
+                    {
+                        var 链接物 = 按钮点击返回.绑定.原始物体结构.原始物体;
+                        switch (IC外壳控件.Action)
+                        {
+                            case InteractableType.Button1:
+                                设置链接物体(IC外壳, 链接物, 0); break;
+                            case InteractableType.Button2:
+                                设置链接物体(IC外壳, 链接物, 1); break;
+                            case InteractableType.Button3:
+                                设置链接物体(IC外壳, 链接物, 2); break;
+                            case InteractableType.Button4:
+                                设置链接物体(IC外壳, 链接物, 3); break;
+                            case InteractableType.Button5:
+                                设置链接物体(IC外壳, 链接物, 4); break;
+                            case InteractableType.Button6:
+                                设置链接物体(IC外壳, 链接物, 5); break;
+                            default: break;
+                        }
+                    }
+                    break;
             }
-
         }
         private static void 设置链接物体(CircuitHousing IC外壳, ILogicable 选择焦点, byte 螺丝编号)
         {
             // TODO:联机游戏请在此处发送数据包,目前不知道应该发送什么消息
             IC外壳.Devices[螺丝编号] = 选择焦点;
         }
-        public static 链接选择面板消息结构 获取链接选择面板所需的交互消息(this CircuitHousing IC外壳, Interactable IC外壳控件) => 链接选择面板消息结构.选择链接物;
+        public static 链接选择面板渲染分支选择消息.消息结构.消息类型 获取渲染分支选择消息(this CircuitHousing IC外壳, Interactable IC外壳控件)
+        {
+            return 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支;
+        }
+
+        public static 链接选择面板渲染分支选择消息.消息结构 获取完整渲染分支选择消息(this CircuitHousing IC外壳, Interactable IC外壳控件)
+        {
+            return new 链接选择面板渲染分支选择消息.消息结构
+            {
+                type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
+                可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = IC外壳.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)IC外壳) }
+            };
+        }
     }
 
     public class CircuitHousing_InteractWith_Patch

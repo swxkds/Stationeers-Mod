@@ -212,8 +212,8 @@ namespace meanran_xuexi_mods_xiaoyouhua
                                     var ILogicableReference = 链接选择面板.选项按钮预制体.AddComponent<ILogicableReference>();
                                     链接选择面板.选项按钮预制体.name = "数据网节点UI单元";
                                     var _ = 链接选择面板.选项按钮预制体.GetComponent<PrefabReference>();
-                                    ILogicableReference.物体缩略图 = _.Thumbnail;
-                                    ILogicableReference.物体描述 = _.Text;
+                                    ILogicableReference.缩略图 = _.Thumbnail;
+                                    ILogicableReference.描述 = _.Text;
                                     ILogicableReference.UiComponentRenderer = _.UiComponentRenderer;
                                     ILogicableReference.GameObject = _.GameObject;
                                     ILogicableReference.Transform = _.Transform;
@@ -228,7 +228,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                                     var _ = __.GetComponent<InputPrefabs>();
                                     链接选择面板.单例 = __.gameObject.AddComponent<链接选择面板>();
                                     链接选择面板.单例.面板标题 = _.TitleText;
-                                    链接选择面板.单例.可链接物滚动区域 = _.GroupParents;
+                                    链接选择面板.单例.可链接物渲染分支 = _.GroupParents;
                                     链接选择面板.单例.面板搜索栏 = _.SearchBar;
                                     链接选择面板.单例.UiComponentRenderer = _.UiComponentRenderer;
                                     链接选择面板.单例.GameObject = _.GameObject;

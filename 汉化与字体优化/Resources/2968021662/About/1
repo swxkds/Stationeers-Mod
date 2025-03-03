@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>Chinese translation</Name>
-  <Author>小风,淡漠安然</Author>
-  <Version>20250121</Version>
-  <Description>
+   <Name>Chinese translation</Name>
+   <Author>小风,淡漠安然</Author>
+   <Version>20250121</Version>
+   <Description>
 
 [hr][/hr]
 当前游戏版本：2024年12月12日(0.2.5370.24111)
@@ -60,6 +60,8 @@
 2025.2.24:增加了使用贴标机对着售货机任意控件单击，打开选择面板，省去了一下一下按找物品的麻烦
                增加了使用角磨机切开管道的功能，免去了超高难度开局时对管道加压，然后拆管道高压炸开的麻烦
 
+2025.2.27:增加了使用贴标机设置IC外壳螺丝链接的功能,构造了贴标机设置其它逻辑组件螺丝的框架
+
 [hr][/hr]
 [h3]本人忙于工作，后续部分基本由淡漠安然进行翻译。(随缘)
 [h2]小风大佬,你就是永远的神
@@ -73,6 +75,6 @@
 祝游戏愉快！
 
   </Description>
-  <WorkshopHandle>2968021662</WorkshopHandle>
-  <Tags />
+   <WorkshopHandle>2968021662</WorkshopHandle>
+   <Tags />
 </ModMetadata>
