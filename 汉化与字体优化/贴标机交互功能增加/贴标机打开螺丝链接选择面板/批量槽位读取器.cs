@@ -113,7 +113,8 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 case InteractableType.Button4:
                     return new 链接选择面板渲染分支选择消息.消息结构
                     {
-                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.统计类型渲染分支
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.统计类型渲染分支,
+                        统计类型渲染分支消息 = new 链接选择面板渲染分支选择消息.统计类型渲染分支消息 { _this = 批量槽位读取器 }
                     };
             }
             return 链接选择面板渲染分支选择消息.消息结构.Null;

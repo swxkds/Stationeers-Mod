@@ -79,7 +79,8 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 case InteractableType.Button1:
                     return new 链接选择面板渲染分支选择消息.消息结构
                     {
-                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.统计类型渲染分支
+                        type = 链接选择面板渲染分支选择消息.消息结构.消息类型.统计类型渲染分支,
+                        统计类型渲染分支消息 = new 链接选择面板渲染分支选择消息.统计类型渲染分支消息 { _this = 批量读取器 }
                     };
                 case InteractableType.Button2:
                     return new 链接选择面板渲染分支选择消息.消息结构
@@ -91,7 +92,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     return new 链接选择面板渲染分支选择消息.消息结构
                     {
                         type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
-                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = 批量读取器.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)批量读取器) }
+                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = 批量读取器.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)批量读取器 && d.IsLogicReadable()) }
                     };
             }
             return 链接选择面板渲染分支选择消息.消息结构.Null;

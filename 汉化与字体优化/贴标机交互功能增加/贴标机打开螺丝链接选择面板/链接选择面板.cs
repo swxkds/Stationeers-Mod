@@ -29,8 +29,11 @@ namespace meanran_xuexi_mods_xiaoyouhua
         public class 原始试剂结构
         {
             public Reagent 原始试剂;
+            public 原始试剂结构(Reagent 原始试剂)
+            {
+                this.原始试剂 = 原始试剂;
+            }
         }
-
         public class 逻辑类型结构
         {
             public LogicType 逻辑类型;
@@ -39,7 +42,6 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 this.逻辑类型 = 支持么;
             }
         }
-
         public class 插槽类型结构
         {
             public LogicSlotType 插槽类型;
@@ -48,7 +50,6 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 this.插槽类型 = 支持么;
             }
         }
-
         public class 插槽编号结构
         {
             public ILogicable 原始物体;
@@ -59,12 +60,14 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 this.插槽编号 = 插槽编号;
             }
         }
-
         public class 试剂模式结构
         {
             public LogicReagentMode 试剂模式;
+            public 试剂模式结构(LogicReagentMode 试剂模式)
+            {
+                this.试剂模式 = 试剂模式;
+            }
         }
-
         public class 基本数学类型结构
         {
             public MathOperators 基本数学类型;
@@ -76,10 +79,18 @@ namespace meanran_xuexi_mods_xiaoyouhua
         public class 高级数学类型结构
         {
             public MathOperatorsUnary 高级数学类型;
+            public 高级数学类型结构(MathOperatorsUnary 高级数学类型)
+            {
+                this.高级数学类型 = 高级数学类型;
+            }
         }
         public class 比较类型结构
         {
             public ConditionOperation 比较类型;
+            public 比较类型结构(ConditionOperation 比较类型)
+            {
+                this.比较类型 = 比较类型;
+            }
         }
         public class 统计类型结构
         {
@@ -95,6 +106,29 @@ namespace meanran_xuexi_mods_xiaoyouhua
             public 原始物体结构(ILogicable obj)
             {
                 this.原始物体 = obj;
+            }
+        }
+        public class 逻辑门类型结构
+        {
+            public GateOperators 逻辑门类型;
+            public 逻辑门类型结构(GateOperators obj)
+            {
+                this.逻辑门类型 = obj;
+            }
+        }
+        public class 最大最小值类型结构
+        {
+            public enum _ComparisonOperation { Greater = 1, Less }
+            public _ComparisonOperation 最大最小值类型;
+            public 最大最小值类型结构(_ComparisonOperation obj) { this.最大最小值类型 = obj; }
+        }
+        public class 无线模式结构
+        {
+            public enum 无线模式 { 联网设备数据转发或者点对点发送 = 0, 点对点监听 = 1 }
+            public 无线模式 工作模式;
+            public 无线模式结构(无线模式 obj)
+            {
+                this.工作模式 = obj;
             }
         }
 
@@ -131,10 +165,47 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 this.type = type;
                 this.基本数学类型结构 = obj;
             }
+            public 内存结构(结构类型 type, 原始试剂结构 obj)
+            {
+                this.type = type;
+                this.原始试剂结构 = obj;
+            }
+            public 内存结构(结构类型 type, 试剂模式结构 obj)
+            {
+                this.type = type;
+                this.试剂模式结构 = obj;
+            }
+            public 内存结构(结构类型 type, 比较类型结构 obj)
+            {
+                this.type = type;
+                this.比较类型结构 = obj;
+            }
+            public 内存结构(结构类型 type, 高级数学类型结构 obj)
+            {
+                this.type = type;
+                this.高级数学类型结构 = obj;
+            }
+            public 内存结构(结构类型 type, 逻辑门类型结构 obj)
+            {
+                this.type = type;
+                this.逻辑门类型结构 = obj;
+            }
+            public 内存结构(结构类型 type, 最大最小值类型结构 obj)
+            {
+                this.type = type;
+                this.最大最小值类型结构 = obj;
+            }
+            public 内存结构(结构类型 type, 无线模式结构 obj)
+            {
+                this.type = type;
+                this.无线模式结构 = obj;
+            }
+
             public enum 结构类型 : byte
             {
                 原始试剂 = 0, 逻辑类型 = 1, 插槽类型 = 2, 插槽编号 = 3, 试剂模式 = 4,
-                基本数学类型 = 5, 高级数学类型 = 6, 比较类型 = 7, 统计类型 = 8, 原始物体 = 9
+                基本数学类型 = 5, 高级数学类型 = 6, 比较类型 = 7, 统计类型 = 8, 原始物体 = 9,
+                逻辑门类型 = 10, 最大最小值类型 = 11, 无线模式 = 12
             }
 
             [FieldOffset(0)]
@@ -159,6 +230,13 @@ namespace meanran_xuexi_mods_xiaoyouhua
             public 统计类型结构 统计类型结构;
             [FieldOffset(8)]
             public 原始物体结构 原始物体结构;
+            [FieldOffset(8)]
+            public 逻辑门类型结构 逻辑门类型结构;
+            [FieldOffset(8)]
+            public 最大最小值类型结构 最大最小值类型结构;
+            [FieldOffset(8)]
+            public 无线模式结构 无线模式结构;
+
         }
     }
     public class ILogicableReference : UserInterfaceAnimated, IScreenSpaceTooltip
@@ -205,6 +283,12 @@ namespace meanran_xuexi_mods_xiaoyouhua
                         描述.text = 绑定.比较类型结构.比较类型.ToString() + "\n" + Localization.GetSlotTooltip(Slot.Class.None); break;
                     case ILogicableReference内存结构.内存结构.结构类型.统计类型:
                         描述.text = 绑定.统计类型结构.统计类型.ToString() + "\n" + Localization.GetSlotTooltip(Slot.Class.None); break;
+                    case ILogicableReference内存结构.内存结构.结构类型.逻辑门类型:
+                        描述.text = 绑定.逻辑门类型结构.逻辑门类型.ToString() + "\n" + Localization.GetSlotTooltip(Slot.Class.None); break;
+                    case ILogicableReference内存结构.内存结构.结构类型.最大最小值类型:
+                        描述.text = 绑定.最大最小值类型结构.最大最小值类型.ToString() + "\n" + Localization.GetSlotTooltip(Slot.Class.None); break;
+                    case ILogicableReference内存结构.内存结构.结构类型.无线模式:
+                        描述.text = 绑定.无线模式结构.工作模式.ToString() + "\n" + Localization.GetSlotTooltip(Slot.Class.None); break;
                 }
 
                 if (可选自定义缩略图 != null)
@@ -250,41 +334,20 @@ namespace meanran_xuexi_mods_xiaoyouhua
     {
         public static Dictionary<Type, (Func<LogicUnitBase, Interactable, 消息结构.消息类型>, Func<LogicUnitBase, Interactable, 消息结构>)> 函数地址缓冲区 =
         new Dictionary<Type, (Func<LogicUnitBase, Interactable, 消息结构.消息类型>, Func<LogicUnitBase, Interactable, 消息结构>)>(64);
-        public struct 可链接物渲染分支消息
-        {
-            public IEnumerable<ILogicable> 可链接物体表;   // 扫描得到的最新的数据网节点物体表
-        }
-
-        public struct 逻辑类型渲染分支消息
-        {
-            public ILogicable 已链接物体;   // 不同物体的只读和只写类型不一样,已链接物体 + 只读或只写 = 正确显示
-            public IOCheck? 只读或只写;   // 逻辑组件要么读取器选择只读类型,要么写入器选择只写类型
-        }
-
-        public struct 插槽编号渲染分支消息
-        {
-            public ILogicable 已链接物体;     // 将所有插槽类型与物体的所有插槽进行比较,得到符合条件的,并记录该插槽编号
-            public IOCheck? 只读或只写;
-        }
-
-        public struct 插槽类型渲染分支消息
-        {
-            public ILogicable 已链接物体;
-            public IOCheck? 只读或只写;
-            public int 插槽编号;
-        }
-
-        public struct 试剂模式渲染分支消息
-        {
-            public ILogicable 已链接物体;
-        }
-        public struct 原始试剂渲染分支消息
-        {
-            public ILogicable 已链接物体;
-            public LogicReagentMode? 试剂模式;
-        }
-        public struct 统计类型渲染分支消息 { }
-        public struct 基本数学类型渲染分支消息 { }
+        public struct 可链接物渲染分支消息 { public IEnumerable<ILogicable> 可链接物体表; }   // 扫描得到的最新的数据网节点物体表
+        public struct 无线可链接物渲染分支消息 { public int 无线模式; public IEnumerable<ILogicable> 可链接物体表; }   // 扫描得到的最新的数据网节点物体表
+        public struct 逻辑类型渲染分支消息 { public ILogicable 已链接物体; public IOCheck 只读或只写; }   // 逻辑组件要么读取器选择只读类型,要么写入器选择只写类型
+        public struct 插槽编号渲染分支消息 { public ILogicable 已链接物体; public IOCheck 只读或只写; }
+        public struct 插槽类型渲染分支消息 { public ILogicable 已链接物体; public IOCheck 只读或只写; public int 插槽编号; }
+        public struct 试剂模式渲染分支消息 { public ILogicable 已链接物体; }
+        public struct 原始试剂渲染分支消息 { public ILogicable 已链接物体; public LogicReagentMode 试剂模式; }
+        public struct 比较类型渲染分支消息 { public ILogicable _this; }
+        public struct 统计类型渲染分支消息 { public ILogicable _this; }
+        public struct 基本数学类型渲染分支消息 { public ILogicable _this; }
+        public struct 高级数学类型渲染分支消息 { public ILogicable _this; }
+        public struct 逻辑门类型渲染分支消息 { public ILogicable _this; }
+        public struct 最大最小值类型渲染分支消息 { public ILogicable _this; }
+        public struct 无线模式渲染分支消息 { public ILogicable _this; public int 无线模式; }
 
         [StructLayout(LayoutKind.Explicit)]
         public struct 消息结构
@@ -293,7 +356,8 @@ namespace meanran_xuexi_mods_xiaoyouhua
             public enum 消息类型 : byte
             {
                 原始试剂渲染分支, 逻辑类型渲染分支, 插槽类型渲染分支, 插槽编号渲染分支, 试剂模式渲染分支,
-                基本数学类型渲染分支, 高级数学类型渲染分支, 比较类型渲染分支, 统计类型渲染分支, 可链接物渲染分支, Null
+                基本数学类型渲染分支, 高级数学类型渲染分支, 比较类型渲染分支, 统计类型渲染分支, 可链接物渲染分支,
+                无线可链接物渲染分支, 逻辑门类型渲染分支, 最大最小值类型渲染分支, 无线模式渲染分支, Null
             }
 
             [FieldOffset(0)]
@@ -314,7 +378,18 @@ namespace meanran_xuexi_mods_xiaoyouhua
             public 统计类型渲染分支消息 统计类型渲染分支消息;
             [FieldOffset(8)]
             public 基本数学类型渲染分支消息 基本数学类型渲染分支消息;
-
+            [FieldOffset(8)]
+            public 比较类型渲染分支消息 比较类型渲染分支消息;
+            [FieldOffset(8)]
+            public 高级数学类型渲染分支消息 高级数学类型渲染分支消息;
+            [FieldOffset(8)]
+            public 逻辑门类型渲染分支消息 逻辑门类型渲染分支消息;
+            [FieldOffset(8)]
+            public 最大最小值类型渲染分支消息 最大最小值类型渲染分支消息;
+            [FieldOffset(8)]
+            public 无线模式渲染分支消息 无线模式渲染分支消息;
+            [FieldOffset(8)]
+            public 无线可链接物渲染分支消息 无线可链接物渲染分支消息;
         }
     }
     public class 链接选择面板 : InputWindowBase
@@ -375,6 +450,15 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     函数地址缓冲区[typeof(LogicSlotReader)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicSlotReader)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicSlotReader)obj).获取完整渲染分支选择消息(obj控件));
                     函数地址缓冲区[typeof(LogicBatchSlotReader)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicBatchSlotReader)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicBatchSlotReader)obj).获取完整渲染分支选择消息(obj控件));
                     函数地址缓冲区[typeof(LogicMath)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicMath)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicMath)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(ReagentReader)] = ((LogicUnitBase obj, Interactable obj控件) => ((ReagentReader)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((ReagentReader)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicWriterSwitch)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicWriterSwitch)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicWriterSwitch)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicMirror)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicMirror)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicMirror)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicCompare)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicCompare)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicCompare)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicSelect)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicSelect)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicSelect)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicMathUnary)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicMathUnary)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicMathUnary)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicGate)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicGate)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicGate)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicMinMax)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicMinMax)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicMinMax)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(LogicTransmitter)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicTransmitter)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicTransmitter)obj).获取完整渲染分支选择消息(obj控件));
 
                     函数地址缓冲区.TryGetValue(类型对象指针, out 地址);
                     简易消息 = 地址.Item1(光线命中的设备, 光线命中的控件);
@@ -389,127 +473,207 @@ namespace meanran_xuexi_mods_xiaoyouhua
                             return 动作状态消息;
                         }
                     case 消息结构.消息类型.原始试剂渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        if (完整消息.原始试剂渲染分支消息.已链接物体 == null)
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.原始试剂渲染分支消息.已链接物体 == null)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
+                                return 动作状态消息;
+                            }
+                            else if (完整消息.原始试剂渲染分支消息.试剂模式 == LogicReagentMode.TotalContents)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("试剂总质量模式(TotalContents),不需要选择试剂");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开试剂选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else if (完整消息.原始试剂渲染分支消息.试剂模式 == null)
-                        {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置试剂模式");
-                            return 动作状态消息;
-                        }
-                        else
-                        {
-                            默认动作状态消息.AppendStateMessage("单击打开试剂选择面板");
-                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Succeed();
-                        }
-                        break;
                     case 消息结构.消息类型.可链接物渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        if (完整消息.可链接物渲染分支消息.可链接物体表.Count() < 1)
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("当前数据网未检测到可链接物体");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.可链接物渲染分支消息.可链接物体表.Count() < 1)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("当前数据网未检测到可链接物体");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开链接节点选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else
-                        {
-                            默认动作状态消息.AppendStateMessage("单击打开链接节点选择面板");
-                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Succeed();
-                        }
-                        break;
                     case 消息结构.消息类型.基本数学类型渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        默认动作状态消息.AppendStateMessage("单击打开基本数学类型选择面板");
-                        // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                        动作状态消息 = 默认动作状态消息.Succeed();
-                        break;
+                        {
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            默认动作状态消息.AppendStateMessage("单击打开基本数学类型选择面板");
+                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                            动作状态消息 = 默认动作状态消息.Succeed();
+                            break;
+                        }
                     case 消息结构.消息类型.插槽类型渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        if (完整消息.插槽类型渲染分支消息.已链接物体 == null)
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.插槽类型渲染分支消息.已链接物体 == null)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
+                                return 动作状态消息;
+                            }
+                            else if (完整消息.插槽类型渲染分支消息.插槽编号 == -1)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置插槽");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开插槽类型选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else if (完整消息.插槽类型渲染分支消息.插槽编号 == -1)
-                        {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置插槽");
-                            return 动作状态消息;
-                        }
-                        else
-                        {
-                            默认动作状态消息.AppendStateMessage("单击打开插槽类型选择面板");
-                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Succeed();
-                        }
-                        break;
                     case 消息结构.消息类型.插槽编号渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        if (完整消息.插槽编号渲染分支消息.已链接物体 == null)
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.插槽编号渲染分支消息.已链接物体 == null)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开插槽编号选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else
+                    case 消息结构.消息类型.比较类型渲染分支:
                         {
-                            默认动作状态消息.AppendStateMessage("单击打开插槽编号选择面板");
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            默认动作状态消息.AppendStateMessage("单击打开比较类型选择面板");
                             // ActionMessage:启用时设置是绿色字,允许创建动作协程
                             动作状态消息 = 默认动作状态消息.Succeed();
+                            break;
                         }
-                        break;
-                    case 消息结构.消息类型.比较类型渲染分支: return 动作状态消息;
                     case 消息结构.消息类型.统计类型渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        默认动作状态消息.AppendStateMessage("单击打开统计类型选择面板");
-                        // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                        动作状态消息 = 默认动作状态消息.Succeed();
-                        break;
+                        {
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            默认动作状态消息.AppendStateMessage("单击打开统计类型选择面板");
+                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                            动作状态消息 = 默认动作状态消息.Succeed();
+                            break;
+                        }
                     case 消息结构.消息类型.试剂模式渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        if (完整消息.试剂模式渲染分支消息.已链接物体 == null)
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.试剂模式渲染分支消息.已链接物体 == null)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开试剂模式选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else
-                        {
-                            默认动作状态消息.AppendStateMessage("单击打开试剂模式选择面板");
-                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Succeed();
-                        }
-                        break;
                     case 消息结构.消息类型.逻辑类型渲染分支:
-                        完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                        if (完整消息.逻辑类型渲染分支消息.已链接物体 == null)
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.逻辑类型渲染分支消息.已链接物体 == null)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开逻辑类型选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else if (完整消息.逻辑类型渲染分支消息.只读或只写 == null)
+                    case 消息结构.消息类型.高级数学类型渲染分支:
                         {
-                            // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                            动作状态消息 = 默认动作状态消息.Fail("错误:未指定只读或只写");
-                            return 动作状态消息;
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.高级数学类型渲染分支消息._this == null)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开高级数学类型选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
                         }
-                        else
+                    case 消息结构.消息类型.逻辑门类型渲染分支:
                         {
-                            默认动作状态消息.AppendStateMessage("单击打开逻辑类型选择面板");
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            默认动作状态消息.AppendStateMessage("单击打开逻辑门类型选择面板");
                             // ActionMessage:启用时设置是绿色字,允许创建动作协程
                             动作状态消息 = 默认动作状态消息.Succeed();
+                            break;
                         }
-                        break;
-                    case 消息结构.消息类型.高级数学类型渲染分支: return 动作状态消息;
+                    case 消息结构.消息类型.最大最小值类型渲染分支:
+                        {
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            默认动作状态消息.AppendStateMessage("单击打开最大最小值类型选择面板");
+                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                            动作状态消息 = 默认动作状态消息.Succeed();
+                            break;
+                        }
+                    case 消息结构.消息类型.无线可链接物渲染分支:
+                        {
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            if (完整消息.无线可链接物渲染分支消息.无线模式 == 1)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail(GameStrings.ThingModeDoesNotSupportLinking);
+                                return 动作状态消息;
+                            }
+                            else if (完整消息.无线可链接物渲染分支消息.可链接物体表.Count() < 1)
+                            {
+                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Fail("当前数据网未检测到可链接物体");
+                                return 动作状态消息;
+                            }
+                            else
+                            {
+                                默认动作状态消息.AppendStateMessage("单击打开链接节点选择面板");
+                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                                动作状态消息 = 默认动作状态消息.Succeed();
+                            }
+                            break;
+                        }
+                    case 消息结构.消息类型.无线模式渲染分支:
+                        {
+                            完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
+                            默认动作状态消息.AppendStateMessage("单击打开无线模式选择面板");
+                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                            动作状态消息 = 默认动作状态消息.Succeed();
+                            break;
+                        }
                 }
 
                 // 协程函数完美执行结束后,发送一条玩家有动作么=true的AttackWith消息,播放角磨机音效,并调用管道高压炸开协程函数
@@ -537,8 +701,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
 
             return 动作状态消息;
         }
-
-        public static Sprite 批量读取统计类型缩略图像素数组;
+        private delegate ILogicableReference内存结构.内存结构 通用渲染分支表设置回调<T1>(T1 参数);
         public static GameObject 选项按钮预制体;    // 按钮的层级和控制结构,增加显示物体时就构造此结构
         public static GameObject 渲染分支预制体;    // 原始面板的垂直布局组,用于对所有显示的按钮进行排版,有一个区域适配组件(设置了高度适配) 有一个垂直布局组
         public static GameObject 父级画布;
@@ -548,62 +711,39 @@ namespace meanran_xuexi_mods_xiaoyouhua
         public static InputPanelState 链接选择面板状态 = InputPanelState.None;
         public static ILogicableReference 当前焦点; // 每个按钮保存了一个可链接物体的引用,点击时触发时间将引用赋给当前焦点
         public TextMeshProUGUI 面板标题;
-        public Dictionary<消息结构.消息类型, RectTransform> 渲染分支表 = new Dictionary<消息结构.消息类型, RectTransform>(64);
         public static 消息结构.消息类型 当前消息类型;         // 用于区分使用哪个渲染分支
-
-        //-----------------------------------------------------------------------------------------------------------
-        // 重要! 重要! 每一个按钮的点击事件都绑定了一个数据网引用组件,当触发事件时,将数据网引用组件中的数据网物体/逻辑类型/统计类型赋给链接选择面板的当前焦点
-        // 重要! 重要! 数据网物体引用组件和按钮是同一个GameObject,激活时两个同时激活,失活时两个同时失活
-        public RectTransform 可链接物渲染分支;  // 已排版的数据网所有物体按钮的父级       
-        private Dictionary<long, ILogicable> 已发现节点表 = new Dictionary<long, ILogicable>(64);   // 最新扫描到的数据网物体,若物体已经存在于已显示表,则不操作,若物体不存在已显示表,则构造按钮
-        private Dictionary<long, ILogicable> 已显示节点表 = new Dictionary<long, ILogicable>(64);   // 当前已经构造了按钮的数据网物体
-        private Dictionary<long, ILogicable> 已失效节点表 = new Dictionary<long, ILogicable>(64);   // 根据扫描的最新数据网物体,需要失活的数据网物体按钮
-        private Dictionary<long, ILogicableReference> 活跃面板节点表 = new Dictionary<long, ILogicableReference>(64);   // 根据上述三个表的比较得到的最新扫描到的数据网物体的数据网物体引用组件
-
-        // 构造按钮前,优先使用已存在的失活按钮,将新发现物体的信息更新该按钮上保存的数据网物体引用组件,然后以新物体的ID作为Key将引用添加到活跃面板节点表后激活该按钮
-        private Queue<ILogicableReference> 休眠面板节点表 = new Queue<ILogicableReference>();  // 失活的数据网物体按钮不销毁
-
-        // 搜索功能: 对活跃面板节点表的的按钮进行临时的激活或者失活    搜索栏每次文本变更时,遍历活跃面板节点表,对每个数据网物体引用组件里的物体显示名称进行匹配,若匹配上,则激活,否则失活
-        //-----------------------------------------------------------------------------------------------------------
-        // 每个物体可读和可写的逻辑类型是固定的,不需要销毁,因此只需一个针对搜索功能的活跃逻辑类型面板节点表
-        private Dictionary<(int PrefabHash, IOCheck 读或写), (RectTransform 分支节点, List<ILogicableReference> 面板节点表)> 已构造逻辑类型分支表
-        = new Dictionary<(int, IOCheck), (RectTransform, List<ILogicableReference>)>();           // 从此表中获取该物体的可读或可写的已排版父级和该父级所有的按钮引用表
-        private List<ILogicableReference> 活跃逻辑类型面板节点表 = new List<ILogicableReference>();   // 该父级所有的按钮引用,用于控制按钮进行临时的激活或者失活                                                                                             //-----------------------------------------------------------------------------------------------------------
-
-        //-----------------------------------------------------------------------------------------------------------
-        public RectTransform 统计渲染分支;      // 已排版的所有统计类型(求和,平均,最大,最小)的按钮的父级
-        private List<ILogicableReference> 活跃统计类型面板节点表 = new List<ILogicableReference>();
-
-        //-----------------------------------------------------------------------------------------------------------
-        // 每个物体可读和可写的插槽类型是固定的,不需要销毁,因此只需一个针对搜索功能的活跃插槽类型面板节点表
-        private Dictionary<(int PrefabHash, IOCheck 读或写, int 插槽编号), (RectTransform 分支节点, List<ILogicableReference> 面板节点表)> 已构造插槽类型分支表
-        = new Dictionary<(int, IOCheck, int), (RectTransform, List<ILogicableReference>)>();           // 从此表中获取该物体的可读或可写的已排版父级和该父级所有的按钮引用表
-        private List<ILogicableReference> 活跃插槽类型面板节点表 = new List<ILogicableReference>();   // 该父级所有的按钮引用,用于控制按钮进行临时的激活或者失活                                                                                             //-----------------------------------------------------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------------------
-        // 每个物体可读和可写的插槽编号是固定的,不需要销毁,因此只需一个针对搜索功能的活跃插槽编号面板节点表
-        private Dictionary<(int PrefabHash, IOCheck 读或写), (RectTransform 分支节点, List<ILogicableReference> 面板节点表)> 已构造插槽编号分支表
-        = new Dictionary<(int, IOCheck), (RectTransform, List<ILogicableReference>)>();           // 从此表中获取该物体的可读或可写的已排版父级和该父级所有的按钮引用表
-        private List<ILogicableReference> 活跃插槽编号面板节点表 = new List<ILogicableReference>();   // 该父级所有的按钮引用,用于控制按钮进行临时的激活或者失活                                                                                             //-----------------------------------------------------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------------------
-        public RectTransform 基本数学类型渲染分支;      // 已排版的所有基本数学类型(加,减,乘,除等等)的按钮的父级
-        private List<ILogicableReference> 活跃基本数学类型面板节点表 = new List<ILogicableReference>();
-        //-----------------------------------------------------------------------------------------------------------
-        public Transform 渲染分支父级;        // 将一个对象的Transform设为滚动组件的子级,可以让该对象的坐标信息转换成滚动组件的局部坐标系
-                                        // 所谓局部坐标系,这里举例:用指针引用父级的位置数据,子级的位置=指针+局部位移,这样只需要改变父级的位置,子级的位置同步改变
-                                        // Unity引擎基本原理一样,但是可能是通过事件的形式来操作的,即设置一个子级后,在父级那里添加一个事件,父级位置变换,调用事件,改变子级位置
-                                        // 注:窗口程序的基本原理大差不差  
-        public ScrollRect 滚动组件;      // 将一个对象的Transform添加到滚动组件的滚动区,指的是在该对象中添加一个事件,当鼠标在此对象的坐标内部操作时,单独对该对象的局部坐标进行位移
-                                     // 渲染信息绘制顺序由下到上=>当子级对象的渲染信息生成后,将信息提交到父级,滚动组件作为父级有一个遮罩组件,该组件的作用是将超出了规定坐标范围的子级渲染信息的像素全部重置成0
-                                     // 然后生成滚动组件的渲染信息并合并子级渲染信息,坐标重合部分的像素由子级覆盖父级
-
-        //-----------------------------------------------------------------------------------------------------------
+        public Transform 渲染分支父级;
+        public ScrollRect 滚动组件;
         public TMP_InputField 面板搜索栏;
         public Button 面板取消按钮;
-
-        // public void Update()
-        // {
-        //     UITooltipCanvas.Instance?.DoUpdate();
-        // }
+        // -----------------------------------------------------------------------------------------------------------
+        // 重要! 重要! 每一个按钮的点击事件都绑定了一个数据网引用组件,当触发事件时,将数据网引用组件中的数据网物体/逻辑类型/统计类型赋给链接选择面板的当前焦点
+        // 重要! 重要! 数据网物体引用组件和按钮是同一个GameObject,激活时两个同时激活,失活时两个同时失活
+        // 搜索功能: 对面板节点表的的按钮进行临时的激活或者失活    搜索栏每次文本变更时,遍历活跃面板节点表,对每个数据网物体引用组件里的物体显示名称进行匹配,若匹配上,则激活,否则失活
+        public RectTransform 可链接物渲染分支;
+        private Dictionary<long, ILogicable> 已发现节点表 = new Dictionary<long, ILogicable>(32);
+        private Dictionary<long, ILogicable> 已显示节点表 = new Dictionary<long, ILogicable>(32);
+        private Dictionary<long, ILogicable> 已失效节点表 = new Dictionary<long, ILogicable>(32);
+        private Dictionary<long, ILogicableReference> 活跃面板节点表 = new Dictionary<long, ILogicableReference>(32);
+        private Queue<ILogicableReference> 休眠面板节点表 = new Queue<ILogicableReference>(32);
+        // -----------------------------------------------------------------------------------------------------------
+        private Dictionary<消息结构.消息类型, (RectTransform, List<ILogicableReference>)> 通用渲染分支表 = new Dictionary<消息结构.消息类型, (RectTransform, List<ILogicableReference>)>();
+        private List<ILogicableReference> 通用活跃面板节点表 = new List<ILogicableReference>();
+        private Dictionary<(int PrefabHash, IOCheck 读或写), (RectTransform 分支节点, List<ILogicableReference> 面板节点表)> 已构造逻辑类型分支表
+        = new Dictionary<(int, IOCheck), (RectTransform, List<ILogicableReference>)>();
+        private Dictionary<(int PrefabHash, IOCheck 读或写, int 插槽编号), (RectTransform 分支节点, List<ILogicableReference> 面板节点表)> 已构造插槽类型分支表
+        = new Dictionary<(int, IOCheck, int), (RectTransform, List<ILogicableReference>)>();
+        private Dictionary<(int PrefabHash, IOCheck 读或写), (RectTransform 分支节点, List<ILogicableReference> 面板节点表)> 已构造插槽编号分支表
+        = new Dictionary<(int, IOCheck), (RectTransform, List<ILogicableReference>)>();
+        private static ILogicableReference内存结构.无线模式结构.无线模式[] 无线模式表 = (ILogicableReference内存结构.无线模式结构.无线模式[])Enum.GetValues(typeof(ILogicableReference内存结构.无线模式结构.无线模式));
+        private static ILogicableReference内存结构.最大最小值类型结构._ComparisonOperation[] 最大最小值类型表 = (ILogicableReference内存结构.最大最小值类型结构._ComparisonOperation[])Enum.GetValues(typeof(ILogicableReference内存结构.最大最小值类型结构._ComparisonOperation));
+        private static GateOperators[] 逻辑门类型表 = (GateOperators[])Enum.GetValues(typeof(GateOperators));
+        private static MathOperatorsUnary[] 高级数学类型表 = (MathOperatorsUnary[])Enum.GetValues(typeof(MathOperatorsUnary));
+        private static ConditionOperation[] 比较类型表 = (ConditionOperation[])Enum.GetValues(typeof(ConditionOperation));
+        private static LogicReagentMode[] 试剂模式表 = (LogicReagentMode[])Enum.GetValues(typeof(LogicReagentMode));
+        private static Reagent[] 原始试剂表 = null;
+        private static MathOperators[] 基本数学类型表 = (MathOperators[])Enum.GetValues(typeof(MathOperators));
+        private static LogicBatchMethod[] 统计类型表 = (LogicBatchMethod[])Enum.GetValues(typeof(LogicBatchMethod));
         public override void Initialize()
         {
             base.Initialize();
@@ -611,7 +751,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
 
             Localization.OnLanguageChanged += 回调_语言设置变更;  // 当显示逻辑类型滚动区域时,请确保不要刷新文本
 
-            // 面板标题.font = AssetsLoad.单例.内置TMP字体;
+            面板标题.font = AssetsLoad.单例.内置TMP字体;
 
             面板取消按钮 = this.transform.GetChild(0).GetChild(4).GetComponent<Button>();
             面板取消按钮.onClick.AddListener(CancelInput);
@@ -625,7 +765,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
             渲染分支父级 = 可链接物渲染分支.transform.parent;
 
             设置激活状态(可链接物渲染分支, false);
-            渲染分支表[消息结构.消息类型.可链接物渲染分支] = 可链接物渲染分支;
+            通用渲染分支表[消息结构.消息类型.可链接物渲染分支] = (可链接物渲染分支, null);
 
             滚动组件 = transform.GetChild(0).GetChild(7).GetComponent<ScrollRectNoDrag>();
 
@@ -649,8 +789,8 @@ namespace meanran_xuexi_mods_xiaoyouhua
         }
         public static bool 绘制链接选择面板(string 面板标题, 消息结构 完整消息)
         {
-            // 此单例当前正在显示中,不可以修改内容
-            if (链接选择面板状态 != 0)
+            // 面板当前正在显示中时不可以重复开关面板;未实装的消息Null不可以打开面板
+            if (链接选择面板状态 != 0 || 完整消息.type == 消息结构.消息类型.Null)
             {
                 return false;
             }
@@ -661,20 +801,24 @@ namespace meanran_xuexi_mods_xiaoyouhua
             链接选择面板状态 = InputPanelState.Waiting;      // 请在人物镜头管理器相关函数中插入判断此状态,当状态不为0时,锁定镜头移动
             EventSystem.current.SetSelectedGameObject(单例.面板搜索栏.gameObject);  // 通知Unity引擎监控搜索栏操作
 
-            foreach (var 渲染分支 in 单例.渲染分支表.Values)
+            foreach ((RectTransform 分支, List<ILogicableReference> 分支节点表) __ in 单例.通用渲染分支表.Values)
             {
-                设置激活状态(渲染分支, false);
+                设置激活状态(__.分支, false);
             }
 
             switch (当前消息类型)
             {
-                case 消息结构.消息类型.Null: return false;
-                case 消息结构.消息类型.原始试剂渲染分支: return false;
+                case 消息结构.消息类型.原始试剂渲染分支:
+                    单例.更新原始试剂滚动区域(完整消息);
+                    break;
                 case 消息结构.消息类型.可链接物渲染分支:
                     单例.更新可链接物滚动区域(完整消息.可链接物渲染分支消息.可链接物体表);
                     break;
+                case 消息结构.消息类型.无线可链接物渲染分支:
+                    单例.更新可链接物滚动区域(完整消息.无线可链接物渲染分支消息.可链接物体表);
+                    break;
                 case 消息结构.消息类型.基本数学类型渲染分支:
-                    单例.更新基本数学类型滚动区域(完整消息.基本数学类型渲染分支消息);
+                    单例.更新基本数学类型滚动区域(完整消息);
                     break;
                 case 消息结构.消息类型.插槽类型渲染分支:
                     单例.更新插槽类型滚动区域(完整消息.插槽类型渲染分支消息);
@@ -682,72 +826,181 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 case 消息结构.消息类型.插槽编号渲染分支:
                     单例.更新插槽编号滚动区域(完整消息.插槽编号渲染分支消息);
                     break;
-                case 消息结构.消息类型.比较类型渲染分支: return false;
-                case 消息结构.消息类型.统计类型渲染分支:
-                    单例.更新统计类型滚动区域(完整消息.统计类型渲染分支消息);
+                case 消息结构.消息类型.比较类型渲染分支:
+                    单例.更新比较类型滚动区域(完整消息);
                     break;
-                case 消息结构.消息类型.试剂模式渲染分支: return false;
+                case 消息结构.消息类型.统计类型渲染分支:
+                    单例.更新统计类型滚动区域(完整消息);
+                    break;
+                case 消息结构.消息类型.试剂模式渲染分支:
+                    单例.更新试剂模式滚动区域(完整消息);
+                    break;
                 case 消息结构.消息类型.逻辑类型渲染分支:
                     单例.更新逻辑类型滚动区域(完整消息.逻辑类型渲染分支消息);
                     break;
-                case 消息结构.消息类型.高级数学类型渲染分支: return false;
+                case 消息结构.消息类型.高级数学类型渲染分支:
+                    单例.更新高级数学类型滚动区域(完整消息);
+                    break;
+                case 消息结构.消息类型.逻辑门类型渲染分支:
+                    单例.更新逻辑门类型滚动区域(完整消息);
+                    break;
+                case 消息结构.消息类型.最大最小值类型渲染分支:
+                    单例.更新最大最小值类型滚动区域(完整消息);
+                    break;
+                case 消息结构.消息类型.无线模式渲染分支:
+                    单例.更新无线模式滚动区域(完整消息);
+                    break;
             }
 
             单例.回调_搜索栏查询操作(单例.面板搜索栏.text);
             单例.SetVisible(isVisble: true);                    // 激活(显示)面板
 
-            // LayoutRebuilder.ForceRebuildLayoutImmediate(单例.RectTransform);
+           // LayoutRebuilder.ForceRebuildLayoutImmediate(单例.RectTransform);
             return true;
         }
-        public void 更新基本数学类型滚动区域(基本数学类型渲染分支消息 消息)
+        private List<ILogicableReference> 更新或者构造滚动区域<T1>(消息结构.消息类型 消息类型, Array 参数表, 通用渲染分支表设置回调<T1> 回调, Sprite 缩略图 = null)
         {
-            if (渲染分支表.TryGetValue(消息结构.消息类型.基本数学类型渲染分支, out 基本数学类型渲染分支))
+            if (通用渲染分支表.TryGetValue(消息类型, out (RectTransform 分支, List<ILogicableReference> 分支节点表) __))
             {
-                if (基本数学类型渲染分支.parent != 渲染分支父级)
-                    基本数学类型渲染分支.SetParent(渲染分支父级, false);
-                单例.滚动组件.content = 基本数学类型渲染分支;
-                设置激活状态(基本数学类型渲染分支, true);
+                if (__.分支.parent != 渲染分支父级)
+                    __.分支.SetParent(渲染分支父级, false);
+                单例.滚动组件.content = __.分支;
+                设置激活状态(__.分支, true);
 
-                foreach (var 节点 in 活跃基本数学类型面板节点表)
+                foreach (var 节点 in __.分支节点表)
                 {
+                    if (缩略图 != null) { 节点.缩略图.sprite = 缩略图; }
                     设置激活状态(节点.transform, true);
                 }
+
+                return __.分支节点表;
             }
             else
             {
-                基本数学类型渲染分支 = UnityEngine.Object.Instantiate(渲染分支预制体).GetComponent<RectTransform>();
-                渲染分支表[消息结构.消息类型.基本数学类型渲染分支] = 基本数学类型渲染分支;
+                var 分支 = UnityEngine.Object.Instantiate(渲染分支预制体).GetComponent<RectTransform>();
+                var 分支节点表 = new List<ILogicableReference>();
 
-                活跃基本数学类型面板节点表 = new List<ILogicableReference>();
-                foreach (var 基本数学类型 in Enum.GetValues(typeof(MathOperators)) as MathOperators[])
+                foreach (T1 参数 in 参数表)
                 {
-                    ILogicableReference 面板节点;
-                    面板节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 基本数学类型渲染分支.transform).GetComponent<ILogicableReference>();
-                    面板节点.GetComponent<Button>().onClick.AddListener(面板节点.回调_按钮点击);
-                    面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.基本数学类型, new ILogicableReference内存结构.基本数学类型结构(基本数学类型)));
-                    活跃基本数学类型面板节点表.Add(面板节点);
+                    ILogicableReference 节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 分支).GetComponent<ILogicableReference>();
+                    节点.GetComponent<Button>().onClick.AddListener(节点.回调_按钮点击);
+                    节点.设置(回调(参数), 缩略图);
+                    分支节点表.Add(节点);
                 }
 
-                LayoutRebuilder.ForceRebuildLayoutImmediate(基本数学类型渲染分支);
-                更新基本数学类型滚动区域(消息);
+                通用渲染分支表[消息类型] = (分支, 分支节点表);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(分支);
+                return 更新或者构造滚动区域<T1>(消息类型, 参数表, 回调, 缩略图);
             }
+        }
+        private void 更新无线模式滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<ILogicableReference内存结构.无线模式结构.无线模式>
+            (
+                完整消息.type,
+                无线模式表,
+                (无线模式) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.无线模式, new ILogicableReference内存结构.无线模式结构(无线模式)),
+                缩略图: ((Thing)完整消息.无线模式渲染分支消息._this).Thumbnail
+            );
+        }
+        private void 更新最大最小值类型滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<ILogicableReference内存结构.最大最小值类型结构._ComparisonOperation>
+            (
+                完整消息.type,
+                最大最小值类型表,
+                (最大最小值类型) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.最大最小值类型, new ILogicableReference内存结构.最大最小值类型结构(最大最小值类型)),
+                 缩略图: ((Thing)完整消息.最大最小值类型渲染分支消息._this).Thumbnail
+            );
+        }
+        private void 更新逻辑门类型滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<GateOperators>
+            (
+                完整消息.type,
+                逻辑门类型表,
+                (逻辑门类型) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.逻辑门类型, new ILogicableReference内存结构.逻辑门类型结构(逻辑门类型)),
+                 缩略图: ((Thing)完整消息.逻辑门类型渲染分支消息._this).Thumbnail
+            );
+        }
+        private void 更新高级数学类型滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<MathOperatorsUnary>
+            (
+                完整消息.type,
+                高级数学类型表,
+                (高级数学类型) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.高级数学类型, new ILogicableReference内存结构.高级数学类型结构(高级数学类型)),
+                缩略图: ((Thing)完整消息.高级数学类型渲染分支消息._this).Thumbnail
+            );
+        }
+        private void 更新比较类型滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<ConditionOperation>
+            (
+                完整消息.type,
+                比较类型表,
+                (比较类型) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.比较类型, new ILogicableReference内存结构.比较类型结构(比较类型)),
+                缩略图: ((Thing)完整消息.比较类型渲染分支消息._this).Thumbnail
+            );
+        }
+        private void 更新试剂模式滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<LogicReagentMode>
+            (
+                完整消息.type,
+                试剂模式表,
+                (试剂模式) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.试剂模式, new ILogicableReference内存结构.试剂模式结构(试剂模式)),
+                 缩略图: ((Thing)完整消息.试剂模式渲染分支消息.已链接物体).Thumbnail
+            );
+        }
+        private void 更新原始试剂滚动区域(消息结构 完整消息)
+        {
+            if (原始试剂表 == null) { 原始试剂表 = Reagent.AllReagentsSorted.ToArray(); }
+            通用活跃面板节点表 = 更新或者构造滚动区域<Reagent>
+            (
+                完整消息.type,
+                原始试剂表,
+                (试剂) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.原始试剂, new ILogicableReference内存结构.原始试剂结构(试剂)),
+                 缩略图: ((Thing)完整消息.原始试剂渲染分支消息.已链接物体).Thumbnail
+            );
+        }
+        private void 更新基本数学类型滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<MathOperators>
+            (
+                完整消息.type,
+                基本数学类型表,
+                (基本数学类型) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.基本数学类型, new ILogicableReference内存结构.基本数学类型结构(基本数学类型)),
+                缩略图: ((Thing)完整消息.基本数学类型渲染分支消息._this).Thumbnail
+            );
+        }
+        private void 更新统计类型滚动区域(消息结构 完整消息)
+        {
+            通用活跃面板节点表 = 更新或者构造滚动区域<LogicBatchMethod>
+            (
+                完整消息.type,
+                统计类型表,
+                (统计类型) => new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.统计类型, new ILogicableReference内存结构.统计类型结构(统计类型)),
+                缩略图: ((Thing)完整消息.统计类型渲染分支消息._this).Thumbnail
+            );
         }
         public void 更新插槽类型滚动区域(插槽类型渲染分支消息 消息)
         {
-            var 只读或只写 = 消息.只读或只写.GetValueOrDefault();
+            var 只读或只写 = 消息.只读或只写;
             var 插槽编号 = 消息.插槽编号;
 
             if (已构造插槽类型分支表.TryGetValue((((Thing)消息.已链接物体).PrefabHash, 只读或只写, 插槽编号), out (RectTransform 分支节点, List<ILogicableReference> 面板节点表) __))
             {
-                渲染分支表[消息结构.消息类型.插槽类型渲染分支] = __.分支节点;
-                活跃插槽类型面板节点表 = __.面板节点表;
+                通用渲染分支表[消息结构.消息类型.插槽类型渲染分支] = __;
+                通用活跃面板节点表 = __.面板节点表;
                 if (__.分支节点.parent != 渲染分支父级)
                     __.分支节点.SetParent(渲染分支父级, false);
                 单例.滚动组件.content = __.分支节点;
                 设置激活状态(__.分支节点, true);
 
-                foreach (var 节点 in 活跃插槽类型面板节点表)
+                foreach (var 节点 in 通用活跃面板节点表)
                 {
+                    节点.缩略图.sprite = ((Thing)消息.已链接物体).Thumbnail;
                     设置激活状态(节点.transform, true);
                 }
             }
@@ -765,7 +1018,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                         ILogicableReference 面板节点;
                         面板节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 分支父级.transform).GetComponent<ILogicableReference>();
                         面板节点.GetComponent<Button>().onClick.AddListener(面板节点.回调_按钮点击);
-                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.插槽类型, new ILogicableReference内存结构.插槽类型结构(支持么)), ((Thing)消息.已链接物体).Thumbnail);
+                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.插槽类型, new ILogicableReference内存结构.插槽类型结构(支持么)));
                         面板节点表.Add(面板节点);
                     }
                 }
@@ -777,19 +1030,20 @@ namespace meanran_xuexi_mods_xiaoyouhua
         }
         public void 更新插槽编号滚动区域(插槽编号渲染分支消息 消息)
         {
-            var 只读或只写 = 消息.只读或只写.GetValueOrDefault();
+            var 只读或只写 = 消息.只读或只写;
 
             if (已构造插槽编号分支表.TryGetValue((((Thing)消息.已链接物体).PrefabHash, 只读或只写), out (RectTransform 分支节点, List<ILogicableReference> 面板节点表) __))
             {
-                渲染分支表[消息结构.消息类型.插槽编号渲染分支] = __.分支节点;
-                活跃插槽编号面板节点表 = __.面板节点表;
+                通用渲染分支表[消息结构.消息类型.插槽编号渲染分支] = __;
+                通用活跃面板节点表 = __.面板节点表;
                 if (__.分支节点.parent != 渲染分支父级)
                     __.分支节点.SetParent(渲染分支父级, false);
                 单例.滚动组件.content = __.分支节点;
                 设置激活状态(__.分支节点, true);
 
-                foreach (var 节点 in 活跃插槽编号面板节点表)
+                foreach (var 节点 in 通用活跃面板节点表)
                 {
+                    节点.缩略图.sprite = ((Thing)消息.已链接物体).Thumbnail;
                     设置激活状态(节点.transform, true);
                 }
             }
@@ -807,7 +1061,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                         ILogicableReference 面板节点;
                         面板节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 分支父级.transform).GetComponent<ILogicableReference>();
                         面板节点.GetComponent<Button>().onClick.AddListener(面板节点.回调_按钮点击);
-                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.插槽编号, new ILogicableReference内存结构.插槽编号结构(消息.已链接物体, i)), ((Thing)消息.已链接物体).Thumbnail);
+                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.插槽编号, new ILogicableReference内存结构.插槽编号结构(消息.已链接物体, i)));
                         面板节点表.Add(面板节点);
                     }
                 }
@@ -817,54 +1071,23 @@ namespace meanran_xuexi_mods_xiaoyouhua
                 更新插槽编号滚动区域(消息);
             }
         }
-        public void 更新统计类型滚动区域(统计类型渲染分支消息 消息)
-        {
-            if (渲染分支表.TryGetValue(消息结构.消息类型.统计类型渲染分支, out 统计渲染分支))
-            {
-                if (统计渲染分支.parent != 渲染分支父级)
-                    统计渲染分支.SetParent(渲染分支父级, false);
-                单例.滚动组件.content = 统计渲染分支;
-                设置激活状态(统计渲染分支, true);
 
-                foreach (var 节点 in 活跃统计类型面板节点表)
-                {
-                    设置激活状态(节点.transform, true);
-                }
-            }
-            else
-            {
-                统计渲染分支 = UnityEngine.Object.Instantiate(渲染分支预制体).GetComponent<RectTransform>();
-                渲染分支表[消息结构.消息类型.统计类型渲染分支] = 统计渲染分支;
-
-                活跃统计类型面板节点表 = new List<ILogicableReference>();
-                foreach (var 统计类型 in Logicable.LogicBatchMethods)
-                {
-                    ILogicableReference 面板节点;
-                    面板节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 统计渲染分支.transform).GetComponent<ILogicableReference>();
-                    面板节点.GetComponent<Button>().onClick.AddListener(面板节点.回调_按钮点击);
-                    面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.统计类型, new ILogicableReference内存结构.统计类型结构(统计类型)));
-                    活跃统计类型面板节点表.Add(面板节点);
-                }
-
-                LayoutRebuilder.ForceRebuildLayoutImmediate(统计渲染分支);
-                更新统计类型滚动区域(消息);
-            }
-        }
         public void 更新逻辑类型滚动区域(逻辑类型渲染分支消息 消息)
         {
-            var 只读或只写 = 消息.只读或只写.GetValueOrDefault();
+            var 只读或只写 = 消息.只读或只写;
 
             if (已构造逻辑类型分支表.TryGetValue((((Thing)消息.已链接物体).PrefabHash, 只读或只写), out (RectTransform 分支节点, List<ILogicableReference> 面板节点表) __))
             {
-                渲染分支表[消息结构.消息类型.逻辑类型渲染分支] = __.分支节点;
-                活跃逻辑类型面板节点表 = __.面板节点表;
+                通用渲染分支表[消息结构.消息类型.逻辑类型渲染分支] = __;
+                通用活跃面板节点表 = __.面板节点表;
                 if (__.分支节点.parent != 渲染分支父级)
                     __.分支节点.SetParent(渲染分支父级, false);
                 单例.滚动组件.content = __.分支节点;
                 设置激活状态(__.分支节点, true);
 
-                foreach (var 节点 in 活跃逻辑类型面板节点表)
+                foreach (var 节点 in 通用活跃面板节点表)
                 {
+                    节点.缩略图.sprite = ((Thing)消息.已链接物体).Thumbnail;
                     设置激活状态(节点.transform, true);
                 }
             }
@@ -882,7 +1105,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                         ILogicableReference 面板节点;
                         面板节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 分支父级.transform).GetComponent<ILogicableReference>();
                         面板节点.GetComponent<Button>().onClick.AddListener(面板节点.回调_按钮点击);
-                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.逻辑类型, new ILogicableReference内存结构.逻辑类型结构(支持么)), ((Thing)消息.已链接物体).Thumbnail);
+                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.逻辑类型, new ILogicableReference内存结构.逻辑类型结构(支持么)));
                         面板节点表.Add(面板节点);
                     }
                     // 当前是逻辑写入器或其他逻辑写入组件,因此获取所有写入逻辑类型,并为所有类型创建按钮,ILogicableReference持有相关引用
@@ -891,7 +1114,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                         ILogicableReference 面板节点;
                         面板节点 = UnityEngine.Object.Instantiate(选项按钮预制体, 分支父级.transform).GetComponent<ILogicableReference>();
                         面板节点.GetComponent<Button>().onClick.AddListener(面板节点.回调_按钮点击);
-                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.逻辑类型, new ILogicableReference内存结构.逻辑类型结构(支持么)), ((Thing)消息.已链接物体).Thumbnail);
+                        面板节点.设置(new ILogicableReference内存结构.内存结构(ILogicableReference内存结构.内存结构.结构类型.逻辑类型, new ILogicableReference内存结构.逻辑类型结构(支持么)));
                         面板节点表.Add(面板节点);
                     }
                 }
@@ -916,40 +1139,8 @@ namespace meanran_xuexi_mods_xiaoyouhua
                         节点.SetVisible(isVisble: 是否显示);
                     }
                     break;
-                case 消息结构.消息类型.逻辑类型渲染分支:
-                    foreach (var 节点 in 活跃逻辑类型面板节点表)
-                    {
-                        string 节点名称 = 节点.描述.text.Trim().ToLower() ?? "";
-                        bool 是否显示 = string.IsNullOrEmpty(条件) || 节点名称.Contains(条件);
-                        节点.SetVisible(isVisble: 是否显示);
-                    }
-                    break;
-                case 消息结构.消息类型.统计类型渲染分支:
-                    foreach (var 节点 in 活跃统计类型面板节点表)
-                    {
-                        string 节点名称 = 节点.描述.text.Trim().ToLower() ?? "";
-                        bool 是否显示 = string.IsNullOrEmpty(条件) || 节点名称.Contains(条件);
-                        节点.SetVisible(isVisble: 是否显示);
-                    }
-                    break;
-                case 消息结构.消息类型.插槽类型渲染分支:
-                    foreach (var 节点 in 活跃插槽类型面板节点表)
-                    {
-                        string 节点名称 = 节点.描述.text.Trim().ToLower() ?? "";
-                        bool 是否显示 = string.IsNullOrEmpty(条件) || 节点名称.Contains(条件);
-                        节点.SetVisible(isVisble: 是否显示);
-                    }
-                    break;
-                case 消息结构.消息类型.插槽编号渲染分支:
-                    foreach (var 节点 in 活跃插槽编号面板节点表)
-                    {
-                        string 节点名称 = 节点.描述.text.Trim().ToLower() ?? "";
-                        bool 是否显示 = string.IsNullOrEmpty(条件) || 节点名称.Contains(条件);
-                        节点.SetVisible(isVisble: 是否显示);
-                    }
-                    break;
-                case 消息结构.消息类型.基本数学类型渲染分支:
-                    foreach (var 节点 in 活跃基本数学类型面板节点表)
+                default:
+                    foreach (var 节点 in 通用活跃面板节点表)
                     {
                         string 节点名称 = 节点.描述.text.Trim().ToLower() ?? "";
                         bool 是否显示 = string.IsNullOrEmpty(条件) || 节点名称.Contains(条件);
@@ -962,7 +1153,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
         }
         public void 更新可链接物滚动区域(IEnumerable<ILogicable> 已发现表)
         {
-            单例.渲染分支表[消息结构.消息类型.可链接物渲染分支] = 单例.可链接物渲染分支;
+            单例.通用渲染分支表[消息结构.消息类型.可链接物渲染分支] = (单例.可链接物渲染分支, null);
             单例.滚动组件.content = 单例.可链接物渲染分支;
             设置激活状态(单例.可链接物渲染分支, true);
 

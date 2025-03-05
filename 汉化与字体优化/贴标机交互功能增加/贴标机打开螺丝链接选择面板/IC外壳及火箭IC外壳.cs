@@ -13,7 +13,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
         public static void 设置螺丝链接(this CircuitHousing IC外壳, Interactable IC外壳控件, ILogicableReference 按钮点击返回)
         {
             switch (按钮点击返回.绑定.type)
-            { 
+            {
                 case ILogicableReference内存结构.内存结构.结构类型.原始物体:
                     {
                         var 链接物 = 按钮点击返回.绑定.原始物体结构.原始物体;
@@ -52,7 +52,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
             return new 链接选择面板渲染分支选择消息.消息结构
             {
                 type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
-                可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = IC外壳.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)IC外壳) }
+                可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = IC外壳.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)IC外壳 && (d.IsLogicReadable() || d.IsLogicWritable())) }
             };
         }
     }
