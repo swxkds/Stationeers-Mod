@@ -334,7 +334,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
     {
         public static Dictionary<Type, (Func<LogicUnitBase, Interactable, 消息结构.消息类型>, Func<LogicUnitBase, Interactable, 消息结构>)> 函数地址缓冲区 =
         new Dictionary<Type, (Func<LogicUnitBase, Interactable, 消息结构.消息类型>, Func<LogicUnitBase, Interactable, 消息结构>)>(64);
-        public struct 可链接物渲染分支消息 { public IEnumerable<ILogicable> 可链接物体表; }   // 扫描得到的最新的数据网节点物体表
+        public struct 可链接物渲染分支消息 { public IEnumerable<ILogicable> 可链接物体表; public bool 空数据网么; }   // 扫描得到的最新的数据网节点物体表
         public struct 无线可链接物渲染分支消息 { public int 无线模式; public IEnumerable<ILogicable> 可链接物体表; }   // 扫描得到的最新的数据网节点物体表
         public struct 逻辑类型渲染分支消息 { public ILogicable 已链接物体; public IOCheck 只读或只写; }   // 逻辑组件要么读取器选择只读类型,要么写入器选择只写类型
         public struct 插槽编号渲染分支消息 { public ILogicable 已链接物体; public IOCheck 只读或只写; }
@@ -498,7 +498,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     case 消息结构.消息类型.可链接物渲染分支:
                         {
                             完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                            if (完整消息.可链接物渲染分支消息.可链接物体表.Count() < 1)
+                            if (完整消息.可链接物渲染分支消息.空数据网么)
                             {
                                 // ActionMessage:禁用时设置是红色字,不允许创建动作协程
                                 动作状态消息 = 默认动作状态消息.Fail("当前数据网未检测到可链接物体");
@@ -613,18 +613,9 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     case 消息结构.消息类型.高级数学类型渲染分支:
                         {
                             完整消息 = 地址.Item2(光线命中的设备, 光线命中的控件);
-                            if (完整消息.高级数学类型渲染分支消息._this == null)
-                            {
-                                // ActionMessage:禁用时设置是红色字,不允许创建动作协程
-                                动作状态消息 = 默认动作状态消息.Fail("请先设置螺丝链接物体");
-                                return 动作状态消息;
-                            }
-                            else
-                            {
-                                默认动作状态消息.AppendStateMessage("单击打开高级数学类型选择面板");
-                                // ActionMessage:启用时设置是绿色字,允许创建动作协程
-                                动作状态消息 = 默认动作状态消息.Succeed();
-                            }
+                            默认动作状态消息.AppendStateMessage("单击打开高级数学类型选择面板");
+                            // ActionMessage:启用时设置是绿色字,允许创建动作协程
+                            动作状态消息 = 默认动作状态消息.Succeed();
                             break;
                         }
                     case 消息结构.消息类型.逻辑门类型渲染分支:
@@ -652,7 +643,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                                 动作状态消息 = 默认动作状态消息.Fail(GameStrings.ThingModeDoesNotSupportLinking);
                                 return 动作状态消息;
                             }
-                            else if (完整消息.无线可链接物渲染分支消息.可链接物体表.Count() < 1)
+                            else if (!完整消息.无线可链接物渲染分支消息.可链接物体表.Any())
                             {
                                 // ActionMessage:禁用时设置是红色字,不允许创建动作协程
                                 动作状态消息 = 默认动作状态消息.Fail("当前数据网未检测到可链接物体");
@@ -855,7 +846,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
             单例.回调_搜索栏查询操作(单例.面板搜索栏.text);
             单例.SetVisible(isVisble: true);                    // 激活(显示)面板
 
-           // LayoutRebuilder.ForceRebuildLayoutImmediate(单例.RectTransform);
+            // LayoutRebuilder.ForceRebuildLayoutImmediate(单例.RectTransform);
             return true;
         }
         private List<ILogicableReference> 更新或者构造滚动区域<T1>(消息结构.消息类型 消息类型, Array 参数表, 通用渲染分支表设置回调<T1> 回调, Sprite 缩略图 = null)

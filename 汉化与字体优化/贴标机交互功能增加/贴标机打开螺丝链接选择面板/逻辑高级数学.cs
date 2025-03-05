@@ -61,7 +61,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     return new 链接选择面板渲染分支选择消息.消息结构
                     {
                         type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
-                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = 逻辑高级数学.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)逻辑高级数学 && d is LogicUnitBase && d.IsLogicReadable()) }
+                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 空数据网么 = (逻辑高级数学.InputNetwork1DevicesSorted == null || 逻辑高级数学.InputNetwork1DevicesSorted.Count <= 1) ? true : false, 可链接物体表 = 逻辑高级数学.InputNetwork1DevicesSorted?.Where(d => d != (ILogicable)逻辑高级数学 && d is LogicUnitBase && d.IsLogicReadable()) }
                     };
                 case InteractableType.Button3:
                     return new 链接选择面板渲染分支选择消息.消息结构

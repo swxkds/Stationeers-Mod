@@ -81,7 +81,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     return new 链接选择面板渲染分支选择消息.消息结构
                     {
                         type = 链接选择面板渲染分支选择消息.消息结构.消息类型.可链接物渲染分支,
-                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 可链接物体表 = 试剂读取器.InputNetwork1DevicesSorted.Where(d => d != (ILogicable)试剂读取器 && d is IRequireReagent) }
+                        可链接物渲染分支消息 = new 链接选择面板渲染分支选择消息.可链接物渲染分支消息 { 空数据网么 = (试剂读取器.InputNetwork1DevicesSorted == null || 试剂读取器.InputNetwork1DevicesSorted.Count <= 1) ? true : false, 可链接物体表 = 试剂读取器.InputNetwork1DevicesSorted?.Where(d => d != (ILogicable)试剂读取器 && d is IRequireReagent) }
                     };
                 case InteractableType.Button2:
                     return new 链接选择面板渲染分支选择消息.消息结构
