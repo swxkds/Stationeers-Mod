@@ -459,6 +459,7 @@ namespace meanran_xuexi_mods_xiaoyouhua
                     函数地址缓冲区[typeof(LogicGate)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicGate)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicGate)obj).获取完整渲染分支选择消息(obj控件));
                     函数地址缓冲区[typeof(LogicMinMax)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicMinMax)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicMinMax)obj).获取完整渲染分支选择消息(obj控件));
                     函数地址缓冲区[typeof(LogicTransmitter)] = ((LogicUnitBase obj, Interactable obj控件) => ((LogicTransmitter)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((LogicTransmitter)obj).获取完整渲染分支选择消息(obj控件));
+                    函数地址缓冲区[typeof(RocketCircuitHousing)] = ((LogicUnitBase obj, Interactable obj控件) => ((CircuitHousing)obj).获取渲染分支选择消息(obj控件), (LogicUnitBase obj, Interactable obj控件) => ((CircuitHousing)obj).获取完整渲染分支选择消息(obj控件));
 
                     函数地址缓冲区.TryGetValue(类型对象指针, out 地址);
                     简易消息 = 地址.Item1(光线命中的设备, 光线命中的控件);
